@@ -1,0 +1,31 @@
+//  CSWeaponsAPI
+//  Copyright (C) 2022-2022 Omer 'KoNLiG' Ben Tzion. All rights reserved.
+
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+"Games"
+{
+	"csgo"
+	{
+		"Signatures"
+		{
+			"LoadCSWeaponData"
+			{
+				"library"	"server"
+				"linux"		"\x55\x89\xE5\x57\x56\x53\x83\xEC\x2C\x8B\x5D\x08\x8B\x73\x10\x8B\x86\x2C\x01\x00\x00"
+				"windows"	"\x55\x8B\xEC\x83\xE4\xF8\x83\xEC\x14\x53\x56\x8B\xF1\x57\x8B\x7E\x10"
+			}
+		}
+	}
+}
