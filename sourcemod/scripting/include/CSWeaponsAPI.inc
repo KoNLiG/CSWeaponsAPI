@@ -73,6 +73,15 @@ methodmap CSWeaponData
     	return CSWeaponData(GetEntityItemView(entity));
     }
     
+    // Will be reverted to a static property in the future, 
+    // unfortunately this isn't possible at this time.
+    // 
+    // Retrieves CCSWeaponData class total size.
+    // Intended for developer compressions.
+    //
+    // @return		CCSWeaponData sizeof.
+    public static native int Size();
+    
     // Retrieves whether this weapon (CSWeaponData) has a silencer.
     //
     // @return             True if this weapon uses a silencer, false otherwise.
@@ -907,6 +916,7 @@ public Extension __ext_CSWeaponsAPI =
 public __ext_CSWeaponsAPI_SetNTVOptional()
 {
     MarkNativeAsOptional("CSWeaponData.CSWeaponData");
+    MarkNativeAsOptional("CSWeaponData.Size")
     MarkNativeAsOptional("CSWeaponData.HasSilencer.get");
     MarkNativeAsOptional("CSWeaponData.HasSilencer.set");
     MarkNativeAsOptional("CSWeaponData.FullAuto.get");
