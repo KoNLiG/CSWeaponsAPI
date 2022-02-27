@@ -369,8 +369,9 @@ private:
 	bool m_bHasBurstMode;                   // 572 [1]
 	bool m_bIsRevolver;                     // 573 [1]
 	bool m_bCannotShootUnderwater;		    // 574 [1]
-
-    // Size = 575
+	// padding?
+	
+    // Size = 576
 };
 
 CCSWeaponData* GetCCSWeaponData(CEconItemView* pView);

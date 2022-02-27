@@ -29,6 +29,11 @@ static cell_t CSWeaponData_Constructor(IPluginContext* pContext, const cell_t* p
     return reinterpret_cast<cell_t>(GetCCSWeaponData(pView));
 }
 
+static cell_t CSWeaponData_Size(IPluginContext* pContext, const cell_t* params)
+{
+    return sizeof(CCSWeaponData);
+}
+
 static cell_t CSWeaponData_GetHasSilencer(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -1696,12 +1701,9 @@ static cell_t CSWeaponData_GetViewModel(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     size_t numBytes = 0;
-    const char* sBuf = pCCSWeaponData->GetViewModel();
 
-    if (sBuf)
-    {
-        pContext->StringToLocalUTF8(params[2], params[3], sBuf, &numBytes);
-    }
+    const char* viewModel = pCCSWeaponData->GetViewModel();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), viewModel ? viewModel : "", &numBytes);
 
     return numBytes;
 }
@@ -1727,12 +1729,9 @@ static cell_t CSWeaponData_GetWorldModel(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     size_t numBytes = 0;
-    const char* sBuf = pCCSWeaponData->GetWorldModel();
 
-    if (sBuf)
-    {
-        pContext->StringToLocalUTF8(params[2], params[3], sBuf, &numBytes);
-    }
+    const char* worldModel = pCCSWeaponData->GetWorldModel();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), worldModel ? worldModel : "", &numBytes);
 
     return numBytes;
 }
@@ -1758,12 +1757,8 @@ static cell_t CSWeaponData_GetDroppedModel(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     size_t numBytes = 0;
-    const char* sBuf = pCCSWeaponData->GetDroppedModel();
-
-    if (sBuf)
-    {
-        pContext->StringToLocalUTF8(params[2], params[3], sBuf, &numBytes);
-    }
+    const char* droppedModel = pCCSWeaponData->GetDroppedModel();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), droppedModel ? droppedModel : "", &numBytes);
 
     return numBytes;
 }
@@ -1789,12 +1784,8 @@ static cell_t CSWeaponData_GetShotSound(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     size_t numBytes = 0;
-    const char* sBuf = pCCSWeaponData->GetShotSound();
-    
-    if (sBuf)
-    {
-        pContext->StringToLocalUTF8(params[2], params[3], sBuf, &numBytes);
-    }
+    const char* shotSound = pCCSWeaponData->GetShotSound();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), shotSound ? shotSound : "", &numBytes);
 
     return numBytes;
 }
@@ -1816,6 +1807,7 @@ static cell_t CSWeaponData_SetShotSound(IPluginContext* pContext, const cell_t* 
 extern const sp_nativeinfo_t g_MyNatives[] =
 {
     { "CSWeaponData.CSWeaponData",                          CSWeaponData_Constructor },
+    { "CSWeaponData.Size",                                  CSWeaponData_Size },
     { "CSWeaponData.HasSilencer.get",                       CSWeaponData_GetHasSilencer },
     { "CSWeaponData.HasSilencer.set",                       CSWeaponData_SetHasSilencer },
     { "CSWeaponData.FullAuto.get",                          CSWeaponData_GetFullAuto },
