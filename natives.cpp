@@ -1989,7 +1989,7 @@ static cell_t CSWeaponData_SetSilencerModel(IPluginContext* pContext, const cell
     char* source = nullptr;
     size_t numBytes = pContext->LocalToString(params[2], &source);
 
-    pCCSWeaponData->CSWeaponData_SetSilencerModel(source);
+    pCCSWeaponData->SetSilencerModel(source);
 
     return numBytes;
 }
