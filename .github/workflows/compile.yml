@@ -1,0 +1,121 @@
+name: ⚙️ Build Extension
+
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch.
+  # Don't run if files doesn't effect building.
+  push:
+    branches: [ master ]
+    paths-ignore: 
+      - LICENSE
+      - README.md
+      - sourcemod/**
+
+  pull_request:
+    branches: [ master ]
+    paths-ignore: 
+      - LICENSE
+      - README.md
+      - sourcemod/**
+
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ⚙️ Build on ${{ matrix.os_short }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Compile on Linux & Windows.
+        os: 
+          - ubuntu-18.04
+          - windows-latest
+
+        sm_branch:
+          - master
+
+        sdk_branch:
+          - csgo
+
+        include:
+          - os: ubuntu-18.04
+            os_short: linux
+          - os: windows-latest
+            os_short: win
+    steps:
+      # Setup Python for AMBuild.
+      - name: 🐍 Setup Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      
+      # Install dependencies
+      - name: 👷 Install AMBuild
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install git+https://github.com/alliedmodders/ambuild
+
+      - name: 🔗 Install dependencies (🐧)
+        if: runner.os == 'Linux'
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt-get update
+          sudo apt-get install -y clang g++-multilib
+      
+      - name: 🖨️ Select clang compiler (🐧)
+        if: runner.os == 'Linux'
+        run: |
+          echo "CC=clang" >> $GITHUB_ENV
+          echo "CXX=clang++" >> $GITHUB_ENV
+          clang --version
+          clang++ --version
+
+      - name: 👓 Find Visual C++ compilers and make all environment variables global (W)
+        if: runner.os == 'Windows'
+        shell: cmd
+        run: |
+          :: See https://github.com/microsoft/vswhere/wiki/Find-VC
+          for /f "usebackq delims=*" %%i in (`vswhere -latest -property installationPath`) do (
+            call "%%i"\Common7\Tools\vsdevcmd.bat -arch=x86 -host_arch=x64
+          )
+
+          :: Loop over all environment variables and make them global.
+          for /f "delims== tokens=1,2" %%a in ('set') do (
+            echo>>"%GITHUB_ENV%" %%a=%%b
+          )
+
+      # Checkout repos
+      - name: ✔️ Checkout SourceMod
+        uses: actions/checkout@v2
+        with:
+          repository: alliedmodders/sourcemod
+          ref: ${{ matrix.sm_branch }}
+          path: sourcemod-${{ matrix.sm_branch }}
+          submodules: recursive
+
+      - name: ✔️ Checkout hl2sdk-csgo
+        uses: actions/checkout@v2
+        with:
+          repository: Wend4r/hl2sdk
+          ref: ${{ matrix.sdk_branch }}
+          path: hl2sdk-${{ matrix.sdk_branch }}
+
+      - name: Checkout CSWeaponsAPI
+        uses: actions/checkout@v2
+        with:
+          path: CSWeaponsAPI
+
+      # Build & Upload
+      - name: 🛠️ Build Extension
+        shell: bash
+        run: |
+          cd CSWeaponsAPI && mkdir build && cd build
+          python ../configure.py --enable-optimize --sm-path="${{ github.workspace }}/sourcemod-${{ matrix.sm_branch }}"
+          ambuild
+
+      - name: 🏷️ Upload Package
+        uses: actions/upload-artifact@v2
+        with:
+          name: CSWeaponsAPI
+          path: CSWeaponsAPI/build/package
