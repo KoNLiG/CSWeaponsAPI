@@ -225,7 +225,7 @@ public:
 	void SetBotAudibleRange(float value)                    { m_flBotAudibleRange = value; } 
 
     // Strings
-	const char* GetClassName() const						{ return m_szViewModel; }
+	const char* GetClassName() const						{ return m_szClassName; }
 	const char* GetViewModel() const               			{ return m_szViewModel; }
     const char* GetWorldModel() const               		{ return m_szWorldModel; }
     const char* GetDroppedModel() const               		{ return m_szDroppedModel; }
@@ -245,10 +245,24 @@ public:
     const char* GetZoomOutSound() const       				{ return m_szZoomOutSound; }
 	
 	// Setters
+	void SetClassName(char* source)                			{ m_szClassName = source; }
 	void SetViewModel(char* source)                			{ m_szViewModel = source; }
 	void SetWorldModel(char* source)               			{ m_szWorldModel = source; }
     void SetDroppedModel(char* source)             			{ m_szDroppedModel = source; }
 	void SetShotSound(char* source)				   			{ m_szShotSound = source; }
+   	void SetEmptySound(char* source)				   		{ m_szEmptySound = source; }
+    void SetBulletType(char* source)				   		{ m_szBulletType = source; }
+    void SetHudName(char* source)             				{ m_szHudName = source; }
+    void SetDefaultName(char* source)				   		{ m_szDefaultName = source; }
+    void SetAnimationPrefix(char* source)             		{ m_szAnimationPrefix = source; }
+    void SetSilencerModel(char* source)             		{ m_pSilencerModel = source; }
+    void SetAddonlocation(char* source)             		{ m_szAddonlocation = source; }
+    void SetEjectBrassEffect(char* source)             		{ m_szEjectBrassEffect = source; }
+    void SetTracerEffect(char* source)				   		{ m_szTracerEffect = source; }
+    void SetMuzzleFlashEffect1stPerson(char* source)		{ m_szMuzzleFlashEffect1stPerson = source; }
+    void SetHeatEffect(char* source)             			{ m_szHeatEffect = source; }
+    void SetZoomInSound(char* source)             			{ m_szZoomInSound = source; }
+    void SetZoomOutSound(char* source)             			{ m_szZoomOutSound = source; }
 
 private:
 	void* m_pVTable;                        // 0 [4]
@@ -369,7 +383,7 @@ private:
 	bool m_bHasBurstMode;                   // 572 [1]
 	bool m_bIsRevolver;                     // 573 [1]
 	bool m_bCannotShootUnderwater;		    // 574 [1]
-	// padding?
+	// padding 575 [1]?
 	
     // Size = 576
 };

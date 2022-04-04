@@ -1694,6 +1694,34 @@ static cell_t CSWeaponData_SetBotAudibleRange(IPluginContext* pContext, const ce
     return 1;
 }
 
+static cell_t CSWeaponData_GetClassName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+
+    const char* className = pCCSWeaponData->GetClassName();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), className ? className : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetClassName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetClassName(source);
+
+    return numBytes;
+}
+
 static cell_t CSWeaponData_GetViewModel(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -1800,6 +1828,357 @@ static cell_t CSWeaponData_SetShotSound(IPluginContext* pContext, const cell_t* 
     size_t numBytes = pContext->LocalToString(params[2], &source);
 
     pCCSWeaponData->SetShotSound(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetEmptySound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* emptySound = pCCSWeaponData->GetEmptySound();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), emptySound ? emptySound : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetEmptySound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetEmptySound(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetBulletType(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* bulletType = pCCSWeaponData->GetBulletType();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), bulletType ? bulletType : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetBulletType(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetBulletType(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetHudName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* hudName = pCCSWeaponData->GetHudName();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), hudName ? hudName : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetHudName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetHudName(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetDefaultName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* defaultName = pCCSWeaponData->GetDefaultName();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), defaultName ? defaultName : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetDefaultName(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetDefaultName(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetAnimationPrefix(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* animationPrefix = pCCSWeaponData->GetAnimationPrefix();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), animationPrefix ? animationPrefix : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetAnimationPrefix(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetAnimationPrefix(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetSilencerModel(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* silencerModel = pCCSWeaponData->GetSilencerModel();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), silencerModel ? silencerModel : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetSilencerModel(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->CSWeaponData_SetSilencerModel(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetAddonlocation(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* addonlocation = pCCSWeaponData->GetAddonlocation();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), addonlocation ? addonlocation : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetAddonlocation(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetAddonlocation(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetEjectBrassEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* ejectBrassEffect = pCCSWeaponData->GetEjectBrassEffect();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), ejectBrassEffect ? ejectBrassEffect : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetEjectBrassEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetEjectBrassEffect(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetTracerEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* tracerEffect = pCCSWeaponData->GetTracerEffect();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), tracerEffect ? tracerEffect : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetTracerEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetTracerEffect(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetMuzzleFlashEffect1stPerson(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* muzzleFlashEffect1stPerson = pCCSWeaponData->GetMuzzleFlashEffect1stPerson();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), muzzleFlashEffect1stPerson ? muzzleFlashEffect1stPerson : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetMuzzleFlashEffect1stPerson(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetMuzzleFlashEffect1stPerson(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetHeatEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* heatEffect = pCCSWeaponData->GetHeatEffect();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), heatEffect ? heatEffect : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetHeatEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetHeatEffect(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetZoomInSound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* zoomInSound = pCCSWeaponData->GetZoomInSound();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), zoomInSound ? zoomInSound : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetZoomInSound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetZoomInSound(source);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_GetZoomOutSound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    size_t numBytes = 0;
+    const char* zoomOutSound = pCCSWeaponData->GetZoomOutSound();
+    pContext->StringToLocalUTF8(params[2], static_cast<size_t>(params[3]), zoomOutSound ? zoomOutSound : "", &numBytes);
+
+    return numBytes;
+}
+
+static cell_t CSWeaponData_SetZoomOutSound(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    char* source = nullptr;
+    size_t numBytes = pContext->LocalToString(params[2], &source);
+
+    pCCSWeaponData->SetZoomOutSound(source);
 
     return numBytes;
 }
@@ -1977,6 +2356,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.BotAudibleRange.get",                   CSWeaponData_GetBotAudibleRange },
     { "CSWeaponData.BotAudibleRange.set",                   CSWeaponData_SetBotAudibleRange },
 
+    { "CSWeaponData.GetClassName",                          CSWeaponData_GetClassName },
+    { "CSWeaponData.SetClassName",                          CSWeaponData_SetClassName },
     { "CSWeaponData.GetViewModel",                          CSWeaponData_GetViewModel },
     { "CSWeaponData.SetViewModel",                          CSWeaponData_SetViewModel },
     { "CSWeaponData.GetWorldModel",                         CSWeaponData_GetWorldModel },
@@ -1985,6 +2366,32 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.SetDroppedModel",                       CSWeaponData_SetDroppedModel },
     { "CSWeaponData.GetShotSound",                          CSWeaponData_GetShotSound },
     { "CSWeaponData.SetShotSound",                          CSWeaponData_SetShotSound },
+    { "CSWeaponData.GetEmptySound",                         CSWeaponData_GetEmptySound },
+    { "CSWeaponData.SetEmptySound",                         CSWeaponData_SetEmptySound },
+    { "CSWeaponData.GetBulletType",                         CSWeaponData_GetBulletType },
+    { "CSWeaponData.SetBulletType",                         CSWeaponData_SetBulletType },
+    { "CSWeaponData.GetHudName",                            CSWeaponData_GetHudName },
+    { "CSWeaponData.SetHudName",                            CSWeaponData_SetHudName },
+    { "CSWeaponData.GetDefaultName",                        CSWeaponData_GetDefaultName },
+    { "CSWeaponData.SetDefaultName",                        CSWeaponData_SetDefaultName },
+    { "CSWeaponData.GetAnimationPrefix",                    CSWeaponData_GetAnimationPrefix },
+    { "CSWeaponData.SetAnimationPrefix",                    CSWeaponData_SetAnimationPrefix },
+    { "CSWeaponData.GetSilencerModel",                      CSWeaponData_GetSilencerModel },
+    { "CSWeaponData.SetSilencerModel",                      CSWeaponData_SetSilencerModel },
+    { "CSWeaponData.GetAddonlocation",                      CSWeaponData_GetAddonlocation },
+    { "CSWeaponData.SetAddonlocation",                      CSWeaponData_SetAddonlocation },
+    { "CSWeaponData.GetEjectBrassEffect",                   CSWeaponData_GetEjectBrassEffect },
+    { "CSWeaponData.SetEjectBrassEffect",                   CSWeaponData_SetEjectBrassEffect },
+    { "CSWeaponData.GetTracerEffect",                       CSWeaponData_GetTracerEffect },
+    { "CSWeaponData.SetTracerEffect",                       CSWeaponData_SetTracerEffect },
+    { "CSWeaponData.GetMuzzleFlashEffect1stPerson",         CSWeaponData_GetMuzzleFlashEffect1stPerson },
+    { "CSWeaponData.SetMuzzleFlashEffect1stPerson",         CSWeaponData_SetMuzzleFlashEffect1stPerson },
+    { "CSWeaponData.GetHeatEffect",                         CSWeaponData_GetHeatEffect },
+    { "CSWeaponData.SetHeatEffect",                         CSWeaponData_SetHeatEffect },
+    { "CSWeaponData.GetZoomInSound",                        CSWeaponData_GetZoomInSound },
+    { "CSWeaponData.SetZoomInSound",                        CSWeaponData_SetZoomInSound },
+    { "CSWeaponData.GetZoomOutSound",                       CSWeaponData_GetZoomOutSound },
+    { "CSWeaponData.SetZoomOutSound",                       CSWeaponData_SetZoomOutSound },
 
     { nullptr,  nullptr }
 }; 

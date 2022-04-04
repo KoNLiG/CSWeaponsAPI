@@ -827,6 +827,23 @@ methodmap CSWeaponData
         public native set(float value);
     }
     
+	// Retrieves the weapon class name.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetClassName(char[] buffer, int maxlength);
+    
+    // Overrides the weapon class name.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetClassName(char[] source);
+
 	// Retrieves the weapon view model file path.
 	// 
 	// @param buffer        Destination string buffer.
@@ -894,6 +911,227 @@ methodmap CSWeaponData
 	// @return              Number of cells written.
 	// @error               Invalid CSWeaponData. (null)
     public native int SetShotSound(char[] source);
+
+    // Retrieves the weapon empty sound.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetEmptySound(char[] buffer, int maxlength);
+    
+    // Overrides this weapon empty sound.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetEmptySound(char[] source);
+
+    // Retrieves the weapon bullet type.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetBulletType(char[] buffer, int maxlength);
+    
+    // Overrides this weapon bullet type.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetBulletType(char[] source);
+
+    // Retrieves the weapon hud name.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetHudName(char[] buffer, int maxlength);
+    
+    // Overrides this weapon hud name.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetHudName(char[] source);
+
+    // Retrieves the weapon default name.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetDefaultName(char[] buffer, int maxlength);
+    
+    // Overrides this weapon default name.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetDefaultName(char[] source);
+
+    // Retrieves the weapon animation prefix.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetAnimationPrefix(char[] buffer, int maxlength);
+    
+    // Overrides this weapon animation prefix.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetAnimationPrefix(char[] source);
+
+    // Retrieves the weapon silencer model.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetSilencerModel(char[] buffer, int maxlength);
+    
+    // Overrides this weapon silencer model.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetSilencerModel(char[] source);
+
+    // Retrieves the weapon addon location.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetAddonlocation(char[] buffer, int maxlength);
+    
+    // Overrides this weapon addon location.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetAddonlocation(char[] source);
+
+    // Retrieves the weapon eject brass effect.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetEjectBrassEffect(char[] buffer, int maxlength);
+    
+    // Overrides this weapon eject brass effect.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetEjectBrassEffect(char[] source);
+
+    // Retrieves the weapon tracer effect.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetTracerEffect(char[] buffer, int maxlength);
+    
+    // Overrides this weapon tracer effect.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetTracerEffect(char[] source);
+
+    // Retrieves the weapon muzzle flash effect 1stPerson.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetMuzzleFlashEffect1stPerson(char[] buffer, int maxlength);
+    
+    // Overrides this weapon muzzle flash effect 1stPerson.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetMuzzleFlashEffect1stPerson(char[] source);
+
+    // Retrieves the weapon heat effect.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetHeatEffect(char[] buffer, int maxlength);
+    
+    // Overrides this weapon heat effect.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetHeatEffect(char[] source);
+
+    // Retrieves the weapon zoom in sound.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetZoomInSound(char[] buffer, int maxlength);
+    
+    // Overrides this weapon zoom in sound.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetZoomInSound(char[] source);
+
+    // Retrieves the weapon zoom out sound.
+	// 
+	// @param buffer        Destination string buffer.
+	// @param maxlength     Maximum length of output string buffer.
+	// 
+	// @return              Number of cells written.
+	// @error              	Invalid CSWeaponData. (null)
+    public native int GetZoomOutSound(char[] buffer, int maxlength);
+    
+    // Overrides this weapon zoom out sound.
+	// 
+	// @param source        Source file path.
+	//
+	// @return              Number of cells written.
+	// @error               Invalid CSWeaponData. (null)
+    public native int SetZoomOutSound(char[] source);
 }
 
 public Extension __ext_CSWeaponsAPI = 
@@ -1086,6 +1324,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.BotAudibleRange.get");
     MarkNativeAsOptional("CSWeaponData.BotAudibleRange.set");
     
+    MarkNativeAsOptional("CSWeaponData.GetClassName");
+    MarkNativeAsOptional("CSWeaponData.SetClassName");
     MarkNativeAsOptional("CSWeaponData.GetViewModel");
     MarkNativeAsOptional("CSWeaponData.SetViewModel");
     MarkNativeAsOptional("CSWeaponData.GetWorldModel");
@@ -1094,5 +1334,31 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.SetDroppedModel");
     MarkNativeAsOptional("CSWeaponData.GetShotSound");
     MarkNativeAsOptional("CSWeaponData.SetShotSound");
+    MarkNativeAsOptional("CSWeaponData.GetEmptySound");
+    MarkNativeAsOptional("CSWeaponData.SetEmptySound");
+    MarkNativeAsOptional("CSWeaponData.GetBulletType");
+    MarkNativeAsOptional("CSWeaponData.SetBulletType");
+    MarkNativeAsOptional("CSWeaponData.GetHudName");
+    MarkNativeAsOptional("CSWeaponData.SetHudName");
+    MarkNativeAsOptional("CSWeaponData.GetDefaultName");
+    MarkNativeAsOptional("CSWeaponData.SetDefaultName");
+    MarkNativeAsOptional("CSWeaponData.GetAnimationPrefix");
+    MarkNativeAsOptional("CSWeaponData.SetAnimationPrefix");
+    MarkNativeAsOptional("CSWeaponData.GetSilencerModel");
+    MarkNativeAsOptional("CSWeaponData.SetSilencerModel");
+    MarkNativeAsOptional("CSWeaponData.GetAddonlocation");
+    MarkNativeAsOptional("CSWeaponData.SetAddonlocation");
+    MarkNativeAsOptional("CSWeaponData.GetEjectBrassEffect");
+    MarkNativeAsOptional("CSWeaponData.SetEjectBrassEffect");
+    MarkNativeAsOptional("CSWeaponData.GetTracerEffect");
+    MarkNativeAsOptional("CSWeaponData.SetTracerEffect");
+    MarkNativeAsOptional("CSWeaponData.GetMuzzleFlashEffect1stPerson");
+    MarkNativeAsOptional("CSWeaponData.SetMuzzleFlashEffect1stPerson");
+    MarkNativeAsOptional("CSWeaponData.GetHeatEffect");
+    MarkNativeAsOptional("CSWeaponData.SetHeatEffect");
+    MarkNativeAsOptional("CSWeaponData.GetZoomInSound");
+    MarkNativeAsOptional("CSWeaponData.SetZoomInSound");
+    MarkNativeAsOptional("CSWeaponData.GetZoomOutSound");
+    MarkNativeAsOptional("CSWeaponData.SetZoomOutSound");
 }
 #endif
