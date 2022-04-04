@@ -3,6 +3,13 @@ import os.path
 
 projectName = 'CSWeaponsAPI'
 
+# smsdk_ext.cpp will be automatically added later
+sourceFiles = [
+  'extension.cpp',
+  'natives.cpp',
+  'classes.cpp'
+]
+
 # Fix various compiler errors under sample_ext's AMBuildScript
 compiler = builder.compiler
 compiler.cxxincludes += [os.path.join(Extension.sm_root, 'public', 'CDetour')]
@@ -15,9 +22,7 @@ if compiler.like('gcc'):
 
 project = Extension.HL2Project(builder, projectName + '.ext')
 project.sources += [
-	'extension.cpp',
-	'classes.cpp',
-	'natives.cpp',
+	sourceFiles,
 	os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp'),
 	os.path.join(Extension.sm_root, 'public', 'CDetour', 'detours.cpp'),
 	os.path.join(Extension.sm_root, 'public', 'asm', 'asm.c'),
@@ -30,8 +35,6 @@ udisSources = ['decode.c', 'itab.c', 'syn-att.c', 'syn-intel.c', 'syn.c', 'udis8
 for udisSource in udisSources:
 	project.sources += [os.path.join(libudisFolder, udisSource)]
 
-for sdk_name in Extension.sdks:
-	sdk = Extension.sdks[sdk_name]
-	binary = Extension.HL2Config(project, projectName + '.ext.' + sdk.ext, sdk)
+Extension.HL2Config(project, projectName + '.ext.' + Extension.sdk.ext, Extension.sdk)
 
 Extension.extensions = builder.Add(project)
