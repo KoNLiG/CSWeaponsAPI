@@ -21,8 +21,7 @@ if compiler.like('gcc'):
 		compiler.cxxflags += ['-Wno-expansion-to-defined', '-Wno-implicit-int-float-conversion']
 
 project = Extension.HL2Project(builder, projectName + '.ext')
-project.sources += [
-	sourceFiles,
+project.sources += sourceFiles + [
 	os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp'),
 	os.path.join(Extension.sm_root, 'public', 'CDetour', 'detours.cpp'),
 	os.path.join(Extension.sm_root, 'public', 'asm', 'asm.c'),
