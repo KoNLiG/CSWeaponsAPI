@@ -390,4 +390,6 @@ private:
 
 CCSWeaponData* GetCCSWeaponData(CEconItemView* pView);
 
+extern CUtlVector<CCSWeaponData *> g_CCSWeaponDataList;
+
 #endif // _INCLUDE_SOURCEMOD_EXTENSION_CLASSES_H_

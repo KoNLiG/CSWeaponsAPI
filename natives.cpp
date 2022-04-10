@@ -29,6 +29,41 @@ static cell_t CSWeaponData_Constructor(IPluginContext* pContext, const cell_t* p
     return reinterpret_cast<cell_t>(GetCCSWeaponData(pView));
 }
 
+static cell_t CSWeaponData_GetByClassName(IPluginContext* pContext, const cell_t* params)
+{
+    char* classname = nullptr;
+    pContext->LocalToString(params[1], &classname);
+
+    for (int i = 0; i < g_CCSWeaponDataList.Count(); i++)
+    {
+        CCSWeaponData* pCCSWeaponData = g_CCSWeaponDataList[i];
+
+        if (strcmp(classname, pCCSWeaponData->GetClassName()))
+        {
+            return reinterpret_cast<cell_t>(pCCSWeaponData);
+        }
+    }
+
+    return 0;
+}
+
+static cell_t CSWeaponData_GetByIndex(IPluginContext* pContext, const cell_t* params)
+{
+    int index = (int)params[1];
+
+    if (!g_CCSWeaponDataList.IsValidIndex(index))
+    {
+        return pContext->ThrowNativeError("Invalid given CCSWeaponData index (%d)", index);
+    }
+    
+    return reinterpret_cast<cell_t>(g_CCSWeaponDataList[index]);
+}
+
+static cell_t CSWeaponData_Count(IPluginContext* pContext, const cell_t* params)
+{
+    return g_CCSWeaponDataList.Count();
+}
+
 static cell_t CSWeaponData_Size(IPluginContext* pContext, const cell_t* params)
 {
     return sizeof(CCSWeaponData);
@@ -2186,6 +2221,9 @@ static cell_t CSWeaponData_SetZoomOutSound(IPluginContext* pContext, const cell_
 extern const sp_nativeinfo_t g_MyNatives[] =
 {
     { "CSWeaponData.CSWeaponData",                          CSWeaponData_Constructor },
+    { "CSWeaponData.GetByClassName",                        CSWeaponData_GetByClassName },
+    { "CSWeaponData.GetByIndex",                            CSWeaponData_GetByIndex },
+    { "CSWeaponData.Count",                                 CSWeaponData_Count },
     { "CSWeaponData.Size",                                  CSWeaponData_Size },
     { "CSWeaponData.HasSilencer.get",                       CSWeaponData_GetHasSilencer },
     { "CSWeaponData.HasSilencer.set",                       CSWeaponData_SetHasSilencer },

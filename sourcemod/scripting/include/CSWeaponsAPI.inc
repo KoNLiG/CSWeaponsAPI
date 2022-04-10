@@ -73,9 +73,25 @@ methodmap CSWeaponData
     	return CSWeaponData(GetEntityItemView(entity));
     }
     
-    // Will be reverted to a static property in the future, 
-    // unfortunately this isn't possible at this time.
-    // 
+    // Retrieves a 'CSWeaponData' by an item classname.
+    //
+    // @return		'CSWeaponData' instance in the given classname, 
+    // 				or 0 if no data matched with the given classname.
+    public static native CSWeaponData GetByClassName(char[] classname);
+    
+    // Retrieves a 'CSWeaponData' by an index.
+    // Use CSWeaponData.Count for the maximum available index.
+    //
+    // @return		'CSWeaponData' instance in the given index.
+    // @error		Invalid index.
+    public static native CSWeaponData GetByIndex(int index);
+    
+    // Retrieves the amount of avilable 'CSWeaponData'.
+    // Can be used to iterate through all of them.
+    //
+    // @return		'CSWeaponData' count.
+    public static native int Count();
+    
     // Retrieves CCSWeaponData class total size.
     // Intended for developer compressions.
     //
@@ -200,7 +216,7 @@ methodmap CSWeaponData
     // Retrieves the weapon maximum secondary reserve ammo. (m_iSecondaryReserveAmmoMax)
     //
     // @error              Invalid CSWeaponData. (null)
-    property int SetSecondaryReserveAmmoMax
+    property int SecondaryReserveAmmoMax
     {
         public native get();
         public native set(int value);
@@ -1154,6 +1170,9 @@ public Extension __ext_CSWeaponsAPI =
 public __ext_CSWeaponsAPI_SetNTVOptional()
 {
     MarkNativeAsOptional("CSWeaponData.CSWeaponData");
+    MarkNativeAsOptional("CSWeaponData.GetByClassName");
+    MarkNativeAsOptional("CSWeaponData.GetByIndex");
+    MarkNativeAsOptional("CSWeaponData.Count");
     MarkNativeAsOptional("CSWeaponData.Size")
     MarkNativeAsOptional("CSWeaponData.HasSilencer.get");
     MarkNativeAsOptional("CSWeaponData.HasSilencer.set");

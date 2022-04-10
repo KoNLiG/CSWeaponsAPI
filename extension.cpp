@@ -33,16 +33,26 @@ IGameConfig* g_pGameConf[GameConf_Max];
 
 IForward *g_pCSWeaponDataLoadedFwd = NULL;
 
+CUtlVector<CCSWeaponData *> g_CCSWeaponDataList;
+
 DETOUR_DECL_STATIC1(Detour_OnLoadCSWeaponData, bool, CCSWeaponData*, pCCSWeaponData)
 {
 	bool success = DETOUR_STATIC_CALL(Detour_OnLoadCSWeaponData)(pCCSWeaponData);
 
-	if (success && g_pCSWeaponDataLoadedFwd->GetFunctionCount())
+	if (success)
 	{
-		g_pCSWeaponDataLoadedFwd->PushCell((cell_t)pCCSWeaponData);
-		g_pCSWeaponDataLoadedFwd->Execute();
+		if (g_CCSWeaponDataList.Find(pCCSWeaponData) == g_CCSWeaponDataList.InvalidIndex())
+		{
+			g_CCSWeaponDataList.AddToTail(pCCSWeaponData);
+		}
+
+		if (g_pCSWeaponDataLoadedFwd->GetFunctionCount())
+		{
+			g_pCSWeaponDataLoadedFwd->PushCell((cell_t)pCCSWeaponData);
+			g_pCSWeaponDataLoadedFwd->Execute();
+		}
 	}
-	
+
 	return success;
 };
 

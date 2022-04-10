@@ -28,6 +28,29 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 public void OnPluginStart()
 {
 	RegAdminCmd("sm_csweapon_dump", Command_CSWeaponDump, ADMFLAG_ROOT);
+	
+	// "Offline" dump.
+	CSWeaponData weapon_data;
+	char classname[64];
+	
+	for (int i; i < CSWeaponData.Count(); i++)
+	{
+		if (!(weapon_data = CSWeaponData.GetByIndex(i)))
+		{
+			PrintToServer("CSWeaponData.GetByIndex FAILED for index %d", i);
+			continue;
+		}
+		
+		weapon_data.GetClassName(classname, sizeof(classname));
+		
+		if (!CSWeaponData.GetByClassName(classname))
+		{
+			PrintToServer("CSWeaponData.GetByIndex FAILED for classname (%s)", classname);
+			continue;
+		}
+		
+		PrintToServer("[%d] classname: (%s)", i, classname);
+	}
 }
 
 Action Command_CSWeaponDump(int client, int argc)
