@@ -38,7 +38,7 @@ static cell_t CSWeaponData_GetByClassName(IPluginContext* pContext, const cell_t
     {
         CCSWeaponData* pCCSWeaponData = g_CCSWeaponDataList[i];
 
-        if (strcmp(classname, pCCSWeaponData->GetClassName()))
+        if (!strcmp(classname, pCCSWeaponData->GetClassName()))
         {
             return reinterpret_cast<cell_t>(pCCSWeaponData);
         }
