@@ -26,7 +26,7 @@ CCSWeaponData* GetCCSWeaponData(CEconItemView* pView)
 	if (!pWrapper)
 	{
         void *addr; 
-	    if (!g_pGameConf[GameConf_CSST]->GetMemSig("GetCCSWeaponData", &addr) || !addr) 
+	    if (!g_pGameConf->GetMemSig("GetCCSWeaponData", &addr) || !addr) 
 	    { 
 	    	g_pSM->LogError(myself, "Failed to lookup GetCCSWeaponData signature."); 
 	    	return nullptr; 

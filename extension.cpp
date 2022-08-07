@@ -29,7 +29,7 @@ IBinTools *g_pBinTools;
 
 CDetour *g_pLoadCSWeaponDataDetour = NULL;
 
-IGameConfig* g_pGameConf[GameConf_Max];
+IGameConfig* g_pGameConf;
 
 IForward *g_pCSWeaponDataLoadedFwd = NULL;
 
@@ -60,21 +60,14 @@ bool CSWeaponsAPI::SDK_OnLoad(char* error, size_t maxlength, bool late)
 {
 	char conf_error[255];
 
-	if (!gameconfs->LoadGameConfigFile("CSWeaponsAPI.games", &g_pGameConf[GameConf_CSWeaponsAPI], conf_error, sizeof(conf_error)))
+	if (!gameconfs->LoadGameConfigFile("CSWeaponsAPI.games", &g_pGameConf, conf_error, sizeof(conf_error)))
 	{
 		snprintf(error, maxlength, "Could not read CSWeaponsAPI.games: %s", conf_error);
 
 		return false;
 	}
-
-	if (!gameconfs->LoadGameConfigFile("sm-cstrike.games", &g_pGameConf[GameConf_CSST], conf_error, sizeof(conf_error)))
-	{
-		snprintf(error, maxlength, "Could not read sm-cstrike.games: %s", conf_error);
-
-		return false;
-	}
 	
-	CDetourManager::Init(g_pSM->GetScriptingEngine(), g_pGameConf[GameConf_CSWeaponsAPI]);
+	CDetourManager::Init(g_pSM->GetScriptingEngine(), g_pGameConf);
 
 	g_pLoadCSWeaponDataDetour = DETOUR_CREATE_STATIC(Detour_OnLoadCSWeaponData, "LoadCSWeaponData");
 	if (!g_pLoadCSWeaponDataDetour)
@@ -101,8 +94,7 @@ void CSWeaponsAPI::SDK_OnAllLoaded()
 
 void CSWeaponsAPI::SDK_OnUnload()
 {
-	gameconfs->CloseGameConfigFile(g_pGameConf[GameConf_CSWeaponsAPI]);
-	gameconfs->CloseGameConfigFile(g_pGameConf[GameConf_CSST]);
+	gameconfs->CloseGameConfigFile(g_pGameConf);
 
 	if (g_pLoadCSWeaponDataDetour)
 	{

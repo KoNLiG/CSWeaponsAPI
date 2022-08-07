@@ -79,15 +79,7 @@ public:
 #endif
 };
 
-/* GameData configuration interfaces */
-enum 
-{
-	GameConf_CSWeaponsAPI,
-	GameConf_CSST,
-	GameConf_Max
-};
-
 extern IBinTools *g_pBinTools;
-extern IGameConfig* g_pGameConf[GameConf_Max];
+extern IGameConfig* g_pGameConf;
 
 #endif // _INCLUDE_SOURCEMOD_EXTENSION_PROPER_H_
