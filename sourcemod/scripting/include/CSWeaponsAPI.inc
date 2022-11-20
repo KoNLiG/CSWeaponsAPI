@@ -230,6 +230,15 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
+	
+    // Retrieves the weapon kill award.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int KillAward
+    {
+        public native get();
+        public native set(int value);
+    }
     
     // Retrieves the weapon inflicted damage.
     //
