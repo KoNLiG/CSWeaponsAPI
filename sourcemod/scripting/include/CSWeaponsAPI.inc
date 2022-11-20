@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #if defined _CSWeaponsAPI_included
@@ -23,36 +23,36 @@
 
 enum CSWeaponType
 {
-	WEAPONTYPE_KNIFE = 0,	
-	WEAPONTYPE_PISTOL,
-	WEAPONTYPE_SUBMACHINEGUN,
-	WEAPONTYPE_RIFLE,
-	WEAPONTYPE_SHOTGUN,
-	WEAPONTYPE_SNIPER_RIFLE,
-	WEAPONTYPE_MACHINEGUN,
-	WEAPONTYPE_C4,
-	WEAPONTYPE_GRENADE,
-	WEAPONTYPE_EQUIPMENT,
-	WEAPONTYPE_STACKABLEITEM,
-	WEAPONTYPE_UNKNOWN
+    WEAPONTYPE_KNIFE = 0,
+    WEAPONTYPE_PISTOL,
+    WEAPONTYPE_SUBMACHINEGUN,
+    WEAPONTYPE_RIFLE,
+    WEAPONTYPE_SHOTGUN,
+    WEAPONTYPE_SNIPER_RIFLE,
+    WEAPONTYPE_MACHINEGUN,
+    WEAPONTYPE_C4,
+    WEAPONTYPE_GRENADE,
+    WEAPONTYPE_EQUIPMENT,
+    WEAPONTYPE_STACKABLEITEM,
+    WEAPONTYPE_UNKNOWN
 };
 
 // Retrieves an entity 'CEconItemView' memory address.
 stock Address GetEntityItemView(int entity)
 {
-	static int m_ItemOffset = -1;
-	
-	if (m_ItemOffset == -1 && (m_ItemOffset = FindSendPropInfo("CBaseCombatWeapon", "m_Item")) <= 0)
-	{
-		SetFailState("Failed to find 'CBaseCombatWeapon::m_Item' offset");
-	}
-	
-	return GetEntityAddress(entity) + view_as<Address>(m_ItemOffset);
-} 
+    static int m_ItemOffset = -1;
+
+    if (m_ItemOffset == -1 && (m_ItemOffset = FindSendPropInfo("CBaseCombatWeapon", "m_Item")) <= 0)
+    {
+        SetFailState("Failed to find 'CBaseCombatWeapon::m_Item' offset");
+    }
+
+    return GetEntityAddress(entity) + view_as<Address>(m_ItemOffset);
+}
 
 /**
  * Called after a 'CSWeaponData' object has been parsed and loaded into the game memory.
- * 
+ *
  * @param weapon_data              'CSWeaponData' object.
  */
 forward void OnCSWeaponDataLoaded(CSWeaponData weapon_data);
@@ -63,41 +63,41 @@ methodmap CSWeaponData
     //
     // @return		'CSWeaponData' instance in the given CEconItemView, or null for an invalid CEconItemView.
     public native CSWeaponData(Address item_view);
-    
+
     // Retrieves a 'CSWeaponData' by an entity index. (Wrapper)
     //
     // @return		'CSWeaponData' instance in the given entity index.
     // @error		Invalid entity index.
     public static CSWeaponData GetByEntity(int entity)
     {
-    	return CSWeaponData(GetEntityItemView(entity));
+        return CSWeaponData(GetEntityItemView(entity));
     }
-    
+
     // Retrieves a 'CSWeaponData' by an item classname.
     //
-    // @return		'CSWeaponData' instance in the given classname, 
+    // @return		'CSWeaponData' instance in the given classname,
     // 				or 0 if no data matched with the given classname.
     public static native CSWeaponData GetByClassName(char[] classname);
-    
+
     // Retrieves a 'CSWeaponData' by an index.
     // Use CSWeaponData.Count for the maximum available index.
     //
     // @return		'CSWeaponData' instance in the given index.
     // @error		Invalid index.
     public static native CSWeaponData GetByIndex(int index);
-    
+
     // Retrieves the amount of avilable 'CSWeaponData'.
     // Can be used to iterate through all of them.
     //
     // @return		'CSWeaponData' count.
     public static native int Count();
-    
+
     // Retrieves CCSWeaponData class total size.
     // Intended for developer compressions.
     //
     // @return		CCSWeaponData sizeof.
     public static native int Size();
-    
+
     // Retrieves whether this weapon (CSWeaponData) has a silencer.
     //
     // @return             True if this weapon uses a silencer, false otherwise.
@@ -107,7 +107,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) is fully automatic.
     //
     // @return             True if this weapon is fully automatic, false otherwise.
@@ -117,7 +117,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) should forcly unzoom after firing a shot.
     //
     // @return             True if it should, false otherwise.
@@ -127,7 +127,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) should hide his view model while zoomed.
     //
     // @return             True if it should, false otherwise.
@@ -137,7 +137,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) has a burst mode.
     //
     // @return             True if this weapon has a burst mode, false otherwise.
@@ -147,7 +147,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) is a revolver.
     //
     // @return             True if this weapon is a revolver, false otherwise.
@@ -157,7 +157,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves whether this weapon (CSWeaponData) is disabled while in water.
     //
     // @return             True if this weapon is disbaled while it water, false otherwise.
@@ -167,7 +167,7 @@ methodmap CSWeaponData
         public native get();
         public native set(bool value);
     }
-    
+
     // Retrieves the weapon maximum 1 clip. (m_iMaxClip1)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -176,7 +176,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon maximum 2 clip. (m_iMaxClip2)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -185,7 +185,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon default 1 clip. (m_iDefaultClip1)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -194,7 +194,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon default 2 clip. (m_iDefaultClip2)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -203,7 +203,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon maximum primary reserve ammo. (m_iPrimaryReserveAmmoMax)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -212,7 +212,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon maximum secondary reserve ammo. (m_iSecondaryReserveAmmoMax)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -221,7 +221,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon purchase price.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -230,7 +230,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-	
+
     // Retrieves the weapon kill award.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -239,7 +239,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon inflicted damage.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -248,7 +248,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon bullets.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -257,7 +257,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-      
+
     // Retrieves the weapon crosshair minimum distance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -265,8 +265,8 @@ methodmap CSWeaponData
     {
         public native get();
         public native set(int value);
-    } 
-    
+    }
+
     // Retrieves the weapon crosshair delta distance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -274,8 +274,8 @@ methodmap CSWeaponData
     {
         public native get();
         public native set(int value);
-    }    
-    
+    }
+
     // Retrieves the weapon recoil seed.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -284,7 +284,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-     
+
     // Retrieves the weapon spread seed.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -293,7 +293,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon recovery transition start bullet.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -302,7 +302,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon recovery transition end bullet.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -311,7 +311,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the amount of zoom levels the weapon features.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -320,7 +320,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon first zoom level FOV.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -329,7 +329,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon second zoom level FOV.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -338,7 +338,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon tracer frequency.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -347,7 +347,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon alternate tracer frequency.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -356,7 +356,7 @@ methodmap CSWeaponData
         public native get();
         public native set(int value);
     }
-    
+
     // Retrieves the weapon CSWeaponType value.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -365,7 +365,7 @@ methodmap CSWeaponData
         public native get();
         public native set(CSWeaponType value);
     }
-    
+
     // Retrieves the weapon cycle time.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -374,7 +374,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate cycle time.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -383,7 +383,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the amount of time to idle of the weapon.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -392,7 +392,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon idle interval.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -401,7 +401,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon damage headshot multiplier.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -410,7 +410,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon armor ratio.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -419,7 +419,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon penetration.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -428,7 +428,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon flinch velocity modifier large.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -437,7 +437,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon flinch velocity modifier small.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -446,7 +446,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon shooting range.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -455,7 +455,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon shooting range modifier.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -464,7 +464,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon throw velocity.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -473,7 +473,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon maximum player movement speed.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -482,7 +482,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate maximum player movement speed.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -491,7 +491,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon attack movespeed factor.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -500,7 +500,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon spread.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -509,7 +509,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate spread.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -518,7 +518,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon crouch inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -527,7 +527,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate crouch inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -536,7 +536,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-        
+
     // Retrieves the weapon stand inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -545,7 +545,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate stand inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -554,7 +554,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon initial jump inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -563,7 +563,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon apex jump inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -572,7 +572,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon jump inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -581,7 +581,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate jump inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -590,7 +590,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon land inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -599,7 +599,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate land inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -608,7 +608,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-        
+
     // Retrieves the weapon ladder inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -617,7 +617,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate ladder inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -626,7 +626,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon fire inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -635,7 +635,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate fire inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -644,7 +644,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-        
+
     // Retrieves the weapon move inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -653,7 +653,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate move inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -662,7 +662,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon reload inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -671,7 +671,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recoil angle.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -680,7 +680,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate recoil angle.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -689,7 +689,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recoil angle variance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -698,7 +698,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate recoil angle variance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -707,7 +707,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recoil magnitude.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -716,7 +716,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate recoil magnitude.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -725,7 +725,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recoil magnitude variance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -734,7 +734,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon alternate recoil magnitude variance.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -743,7 +743,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recovery time crouch.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -752,7 +752,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recovery time stand.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -761,7 +761,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recovery time crouch final.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -770,7 +770,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon recovery time stand final.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -779,7 +779,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon exit zoom time.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -788,7 +788,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon first stage zoom time.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -797,7 +797,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon second stage zoom time.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -806,7 +806,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon addon scale.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -815,7 +815,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon heat per shot.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -824,7 +824,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon pitch shift inaccuracy.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -833,7 +833,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon inaccuracy sound threshold.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -842,7 +842,7 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
+
     // Retrieves the weapon bot audible range.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -851,315 +851,315 @@ methodmap CSWeaponData
         public native get();
         public native set(float value);
     }
-    
-	// Retrieves the weapon class name.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+
+    // Retrieves the weapon class name.
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetClassName(char[] buffer, int maxlength);
-    
+
     // Overrides the weapon class name.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetClassName(char[] source);
 
-	// Retrieves the weapon view model file path.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    // Retrieves the weapon view model file path.
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetViewModel(char[] buffer, int maxlength);
-    
+
     // Overrides the weapon view model.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetViewModel(char[] source);
-    
+
     // Retrieves the weapon world model file path.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetWorldModel(char[] buffer, int maxlength);
-    
+
     // Overrides the weapon world model.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetWorldModel(char[] source);
-    
+
     // Retrieves the weapon dropped model file path. (Generally world model + '_dropped.mdl')
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetDroppedModel(char[] buffer, int maxlength);
-    
+
     // Overrides the weapon dropped model.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetDroppedModel(char[] source);
-    
+
     // Retrieves the weapon shot sound.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetShotSound(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon shot sound.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetShotSound(char[] source);
 
     // Retrieves the weapon empty sound.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetEmptySound(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon empty sound.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetEmptySound(char[] source);
 
     // Retrieves the weapon bullet type.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetBulletType(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon bullet type.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetBulletType(char[] source);
 
     // Retrieves the weapon hud name.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetHudName(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon hud name.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetHudName(char[] source);
 
     // Retrieves the weapon default name.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetDefaultName(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon default name.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetDefaultName(char[] source);
 
     // Retrieves the weapon animation prefix.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetAnimationPrefix(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon animation prefix.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetAnimationPrefix(char[] source);
 
     // Retrieves the weapon silencer model.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetSilencerModel(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon silencer model.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetSilencerModel(char[] source);
 
     // Retrieves the weapon addon location.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetAddonlocation(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon addon location.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetAddonlocation(char[] source);
 
     // Retrieves the weapon eject brass effect.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetEjectBrassEffect(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon eject brass effect.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetEjectBrassEffect(char[] source);
 
     // Retrieves the weapon tracer effect.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetTracerEffect(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon tracer effect.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetTracerEffect(char[] source);
 
     // Retrieves the weapon muzzle flash effect 1stPerson.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetMuzzleFlashEffect1stPerson(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon muzzle flash effect 1stPerson.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetMuzzleFlashEffect1stPerson(char[] source);
 
     // Retrieves the weapon heat effect.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetHeatEffect(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon heat effect.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetHeatEffect(char[] source);
 
     // Retrieves the weapon zoom in sound.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetZoomInSound(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon zoom in sound.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetZoomInSound(char[] source);
 
     // Retrieves the weapon zoom out sound.
-	// 
-	// @param buffer        Destination string buffer.
-	// @param maxlength     Maximum length of output string buffer.
-	// 
-	// @return              Number of cells written.
-	// @error              	Invalid CSWeaponData. (null)
+    //
+    // @param buffer        Destination string buffer.
+    // @param maxlength     Maximum length of output string buffer.
+    //
+    // @return              Number of cells written.
+    // @error              	Invalid CSWeaponData. (null)
     public native int GetZoomOutSound(char[] buffer, int maxlength);
-    
+
     // Overrides this weapon zoom out sound.
-	// 
-	// @param source        Source file path.
-	//
-	// @return              Number of cells written.
-	// @error               Invalid CSWeaponData. (null)
+    //
+    // @param source        Source file path.
+    //
+    // @return              Number of cells written.
+    // @error               Invalid CSWeaponData. (null)
     public native int SetZoomOutSound(char[] source);
 }
 
-public Extension __ext_CSWeaponsAPI = 
+public Extension __ext_CSWeaponsAPI =
 {
     name = "CSWeaponsAPI",
     file = "CSWeaponsAPI.ext",
@@ -1197,7 +1197,7 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.IsRevolver.set");
     MarkNativeAsOptional("CSWeaponData.CannotShootUnderwater.get");
     MarkNativeAsOptional("CSWeaponData.CannotShootUnderwater.set");
-    
+
     MarkNativeAsOptional("CSWeaponData.MaxClip1.get");
     MarkNativeAsOptional("CSWeaponData.MaxClip1.set");
     MarkNativeAsOptional("CSWeaponData.MaxClip2.get");
@@ -1242,7 +1242,7 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.TracerFrequencyAlt.set");
     MarkNativeAsOptional("CSWeaponData.WeaponType.get");
     MarkNativeAsOptional("CSWeaponData.WeaponType.set");
-    
+
     MarkNativeAsOptional("CSWeaponData.CycleTime.get");
     MarkNativeAsOptional("CSWeaponData.CycleTime.set");
     MarkNativeAsOptional("CSWeaponData.CycleTimeAlt.get");
@@ -1351,7 +1351,7 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.InaccuracySoundThreshold.set");
     MarkNativeAsOptional("CSWeaponData.BotAudibleRange.get");
     MarkNativeAsOptional("CSWeaponData.BotAudibleRange.set");
-    
+
     MarkNativeAsOptional("CSWeaponData.GetClassName");
     MarkNativeAsOptional("CSWeaponData.SetClassName");
     MarkNativeAsOptional("CSWeaponData.GetViewModel");

@@ -15,16 +15,16 @@ compiler = builder.compiler
 compiler.cxxincludes += [os.path.join(Extension.sm_root, 'public', 'CDetour')]
 
 if compiler.like('gcc'):
-	compiler.defines += ['HAVE_STRING_H']
+    compiler.defines += ['HAVE_STRING_H']
 
-	if (compiler.vendor == 'clang' and compiler.version >= 'clang-10'):
-		compiler.cxxflags += ['-Wno-expansion-to-defined', '-Wno-implicit-int-float-conversion']
+    if (compiler.vendor == 'clang' and compiler.version >= 'clang-10'):
+        compiler.cxxflags += ['-Wno-expansion-to-defined', '-Wno-implicit-int-float-conversion']
 
 project = Extension.HL2Project(builder, projectName + '.ext')
 project.sources += sourceFiles + [
-	os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp'),
-	os.path.join(Extension.sm_root, 'public', 'CDetour', 'detours.cpp'),
-	os.path.join(Extension.sm_root, 'public', 'asm', 'asm.c'),
+    os.path.join(Extension.sm_root, 'public', 'smsdk_ext.cpp'),
+    os.path.join(Extension.sm_root, 'public', 'CDetour', 'detours.cpp'),
+    os.path.join(Extension.sm_root, 'public', 'asm', 'asm.c'),
 ]
 
 # SM 1.10+
@@ -32,7 +32,7 @@ libudisFolder = os.path.join(Extension.sm_root, 'public', 'libudis86')
 udisSources = ['decode.c', 'itab.c', 'syn-att.c', 'syn-intel.c', 'syn.c', 'udis86.c']
 
 for udisSource in udisSources:
-	project.sources += [os.path.join(libudisFolder, udisSource)]
+    project.sources += [os.path.join(libudisFolder, udisSource)]
 
 Extension.HL2Config(project, projectName + '.ext.' + Extension.sdk.ext, Extension.sdk)
 

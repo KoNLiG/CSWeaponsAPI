@@ -13,14 +13,14 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef _INCLUDE_SOURCEMOD_EXTENSION_NATIVES_H_
 #define _INCLUDE_SOURCEMOD_EXTENSION_NATIVES_H_
 
 #define SM_NATIVE_ERROR_IF_NULL(var) \
-	if (!var) return pContext->ThrowNativeError("%s == nullptr.", #var);
+    if (!var) return pContext->ThrowNativeError("%s == nullptr.", #var);
 
 extern const sp_nativeinfo_t g_MyNatives[];
 

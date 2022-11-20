@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "extension.h"
@@ -25,7 +25,7 @@ static cell_t CSWeaponData_Constructor(IPluginContext* pContext, const cell_t* p
     CEconItemView* pView = reinterpret_cast<CEconItemView*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pView);
-    
+
     return reinterpret_cast<cell_t>(GetCCSWeaponData(pView));
 }
 
@@ -55,7 +55,7 @@ static cell_t CSWeaponData_GetByIndex(IPluginContext* pContext, const cell_t* pa
     {
         return pContext->ThrowNativeError("Invalid given CCSWeaponData index (%d)", index);
     }
-    
+
     return reinterpret_cast<cell_t>(g_CCSWeaponDataList[index]);
 }
 
@@ -74,7 +74,7 @@ static cell_t CSWeaponData_GetHasSilencer(IPluginContext* pContext, const cell_t
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->HasSilencer();
 }
 
@@ -94,7 +94,7 @@ static cell_t CSWeaponData_GetFullAuto(IPluginContext* pContext, const cell_t* p
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->FullAuto();
 }
 
@@ -114,7 +114,7 @@ static cell_t CSWeaponData_GetShouldUnzoomAfterShot(IPluginContext* pContext, co
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->ShouldUnzoomAfterShot();
 }
 
@@ -125,7 +125,7 @@ static cell_t CSWeaponData_SetShouldUnzoomAfterShot(IPluginContext* pContext, co
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetShouldUnzoomAfterShot(params[2]);
-    
+
     return 1;
 }
 
@@ -134,7 +134,7 @@ static cell_t CSWeaponData_GetShouldHideViewModelZoomed(IPluginContext* pContext
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->ShouldHideViewModelZoomed();
 }
 
@@ -145,7 +145,7 @@ static cell_t CSWeaponData_SetShouldHideViewModelZoomed(IPluginContext* pContext
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetShouldHideViewModelZoomed(params[2]);
-    
+
     return 1;
 }
 
@@ -154,7 +154,7 @@ static cell_t CSWeaponData_GetHasBurstMode(IPluginContext* pContext, const cell_
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->HasBurstMode();
 }
 
@@ -165,7 +165,7 @@ static cell_t CSWeaponData_SetHasBurstMode(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetHasBurstMode(params[2]);
-    
+
     return 1;
 }
 
@@ -174,7 +174,7 @@ static cell_t CSWeaponData_GetIsRevolver(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->IsRevolver();
 }
 
@@ -185,7 +185,7 @@ static cell_t CSWeaponData_SetIsRevolver(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetIsRevolver(params[2]);
-    
+
     return 1;
 }
 
@@ -194,7 +194,7 @@ static cell_t CSWeaponData_GetCannotShootUnderwater(IPluginContext* pContext, co
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->CannotShootUnderwater();
 }
 
@@ -205,7 +205,7 @@ static cell_t CSWeaponData_SetCannotShootUnderwater(IPluginContext* pContext, co
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetCannotShootUnderwater(params[2]);
-    
+
     return 1;
 }
 
@@ -214,7 +214,7 @@ static cell_t CSWeaponData_GetMaxClip1(IPluginContext* pContext, const cell_t* p
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->MaxClip1();
 }
 
@@ -225,7 +225,7 @@ static cell_t CSWeaponData_SetMaxClip1(IPluginContext* pContext, const cell_t* p
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetMaxClip1(params[2]);
-    
+
     return 1;
 }
 
@@ -234,7 +234,7 @@ static cell_t CSWeaponData_GetMaxClip2(IPluginContext* pContext, const cell_t* p
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->MaxClip2();
 }
 
@@ -245,7 +245,7 @@ static cell_t CSWeaponData_SetMaxClip2(IPluginContext* pContext, const cell_t* p
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetMaxClip2(params[2]);
-    
+
     return 1;
 }
 
@@ -254,7 +254,7 @@ static cell_t CSWeaponData_GetDefaultClip1(IPluginContext* pContext, const cell_
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->DefaultClip1();
 }
 
@@ -265,7 +265,7 @@ static cell_t CSWeaponData_SetDefaultClip1(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetDefaultClip1(params[2]);
-    
+
     return 1;
 }
 
@@ -274,7 +274,7 @@ static cell_t CSWeaponData_GetDefaultClip2(IPluginContext* pContext, const cell_
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->DefaultClip2();
 }
 
@@ -285,7 +285,7 @@ static cell_t CSWeaponData_SetDefaultClip2(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetDefaultClip2(params[2]);
-    
+
     return 1;
 }
 
@@ -294,7 +294,7 @@ static cell_t CSWeaponData_GetPrimaryReserveAmmoMax(IPluginContext* pContext, co
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->PrimaryReserveAmmoMax();
 }
 
@@ -305,7 +305,7 @@ static cell_t CSWeaponData_SetPrimaryReserveAmmoMax(IPluginContext* pContext, co
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetPrimaryReserveAmmoMax(params[2]);
-    
+
     return 1;
 }
 
@@ -314,7 +314,7 @@ static cell_t CSWeaponData_GetSecondaryReserveAmmoMax(IPluginContext* pContext, 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->SecondaryReserveAmmoMax();
 }
 
@@ -325,7 +325,7 @@ static cell_t CSWeaponData_SetSecondaryReserveAmmoMax(IPluginContext* pContext, 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetSecondaryReserveAmmoMax(params[2]);
-    
+
     return 1;
 }
 
@@ -334,7 +334,7 @@ static cell_t CSWeaponData_GetWeaponPrice(IPluginContext* pContext, const cell_t
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->WeaponPrice();
 }
 
@@ -345,7 +345,7 @@ static cell_t CSWeaponData_SetWeaponPrice(IPluginContext* pContext, const cell_t
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetWeaponPrice(params[2]);
-    
+
     return 1;
 }
 
@@ -354,7 +354,7 @@ static cell_t CSWeaponData_GetKillAward(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->KillAward();
 }
 
@@ -365,7 +365,7 @@ static cell_t CSWeaponData_SetKillAward(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetKillAward(params[2]);
-    
+
     return 1;
 }
 
@@ -374,7 +374,7 @@ static cell_t CSWeaponData_GetDamage(IPluginContext* pContext, const cell_t* par
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->Damage();
 }
 
@@ -385,7 +385,7 @@ static cell_t CSWeaponData_SetDamage(IPluginContext* pContext, const cell_t* par
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetDamage(params[2]);
-    
+
     return 1;
 }
 
@@ -394,7 +394,7 @@ static cell_t CSWeaponData_GetBullets(IPluginContext* pContext, const cell_t* pa
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->Bullets();
 }
 
@@ -405,7 +405,7 @@ static cell_t CSWeaponData_SetBullets(IPluginContext* pContext, const cell_t* pa
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetBullets(params[2]);
-    
+
     return 1;
 }
 
@@ -414,7 +414,7 @@ static cell_t CSWeaponData_GetCrosshairMinDistance(IPluginContext* pContext, con
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->CrosshairMinDistance();
 }
 
@@ -425,7 +425,7 @@ static cell_t CSWeaponData_SetCrosshairMinDistance(IPluginContext* pContext, con
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetCrosshairMinDistance(params[2]);
-    
+
     return 1;
 }
 
@@ -434,7 +434,7 @@ static cell_t CSWeaponData_GetCrosshairDeltaDistance(IPluginContext* pContext, c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->CrosshairDeltaDistance();
 }
 
@@ -445,7 +445,7 @@ static cell_t CSWeaponData_SetCrosshairDeltaDistance(IPluginContext* pContext, c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetCrosshairDeltaDistance(params[2]);
-    
+
     return 1;
 }
 
@@ -454,7 +454,7 @@ static cell_t CSWeaponData_GetRecoilSeed(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->RecoilSeed();
 }
 
@@ -465,7 +465,7 @@ static cell_t CSWeaponData_SetRecoilSeed(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilSeed(params[2]);
-    
+
     return 1;
 }
 
@@ -474,7 +474,7 @@ static cell_t CSWeaponData_GetSpreadSeed(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->SpreadSeed();
 }
 
@@ -485,7 +485,7 @@ static cell_t CSWeaponData_SetSpreadSeed(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetSpreadSeed(params[2]);
-    
+
     return 1;
 }
 
@@ -494,7 +494,7 @@ static cell_t CSWeaponData_GetRecoveryTransitionStartBullet(IPluginContext* pCon
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->RecoveryTransitionStartBullet();
 }
 
@@ -505,7 +505,7 @@ static cell_t CSWeaponData_SetRecoveryTransitionStartBullet(IPluginContext* pCon
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTransitionStartBullet(params[2]);
-    
+
     return 1;
 }
 
@@ -514,7 +514,7 @@ static cell_t CSWeaponData_GetRecoveryTransitionEndBullet(IPluginContext* pConte
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->RecoveryTransitionEndBullet();
 }
 
@@ -525,7 +525,7 @@ static cell_t CSWeaponData_SetRecoveryTransitionEndBullet(IPluginContext* pConte
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTransitionEndBullet(params[2]);
-    
+
     return 1;
 }
 
@@ -534,7 +534,7 @@ static cell_t CSWeaponData_GetZoomLevels(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->ZoomLevels();
 }
 
@@ -545,7 +545,7 @@ static cell_t CSWeaponData_SetZoomLevels(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomLevels(params[2]);
-    
+
     return 1;
 }
 
@@ -554,7 +554,7 @@ static cell_t CSWeaponData_GetZoomFov1(IPluginContext* pContext, const cell_t* p
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->ZoomFov1();
 }
 
@@ -565,7 +565,7 @@ static cell_t CSWeaponData_SetZoomFov1(IPluginContext* pContext, const cell_t* p
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomFov1(params[2]);
-    
+
     return 1;
 }
 
@@ -574,7 +574,7 @@ static cell_t CSWeaponData_GetZoomFov2(IPluginContext* pContext, const cell_t* p
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->ZoomFov2();
 }
 
@@ -585,7 +585,7 @@ static cell_t CSWeaponData_SetZoomFov2(IPluginContext* pContext, const cell_t* p
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomFov2(params[2]);
-    
+
     return 1;
 }
 
@@ -594,7 +594,7 @@ static cell_t CSWeaponData_GetTracerFrequency(IPluginContext* pContext, const ce
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->TracerFrequency();
 }
 
@@ -605,7 +605,7 @@ static cell_t CSWeaponData_SetTracerFrequency(IPluginContext* pContext, const ce
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetTracerFrequency(params[2]);
-    
+
     return 1;
 }
 
@@ -614,7 +614,7 @@ static cell_t CSWeaponData_GetTracerFrequencyAlt(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->TracerFrequencyAlt();
 }
 
@@ -625,7 +625,7 @@ static cell_t CSWeaponData_SetTracerFrequencyAlt(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetTracerFrequencyAlt(params[2]);
-    
+
     return 1;
 }
 
@@ -634,7 +634,7 @@ static cell_t CSWeaponData_GetWeaponType(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return pCCSWeaponData->WeaponType();
 }
 
@@ -643,9 +643,9 @@ static cell_t CSWeaponData_SetWeaponType(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     pCCSWeaponData->SetWeaponType((CSWeaponType)params[2]);
-    
+
     return 1;
 }
 
@@ -654,7 +654,7 @@ static cell_t CSWeaponData_GetCycleTime(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->CycleTime());
 }
 
@@ -665,7 +665,7 @@ static cell_t CSWeaponData_SetCycleTime(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetCycleTime(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -674,7 +674,7 @@ static cell_t CSWeaponData_GetCycleTimeAlt(IPluginContext* pContext, const cell_
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->CycleTimeAlt());
 }
 
@@ -685,7 +685,7 @@ static cell_t CSWeaponData_SetCycleTimeAlt(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetCycleTimeAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -694,7 +694,7 @@ static cell_t CSWeaponData_GetTimeToIdle(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->TimeToIdle());
 }
 
@@ -705,7 +705,7 @@ static cell_t CSWeaponData_SetTimeToIdle(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetTimeToIdle(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -714,7 +714,7 @@ static cell_t CSWeaponData_GetIdleInterval(IPluginContext* pContext, const cell_
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->IdleInterval());
 }
 
@@ -725,7 +725,7 @@ static cell_t CSWeaponData_SetIdleInterval(IPluginContext* pContext, const cell_
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetIdleInterval(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -734,7 +734,7 @@ static cell_t CSWeaponData_GetHeadshotMultiplier(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->HeadshotMultiplier());
 }
 
@@ -745,7 +745,7 @@ static cell_t CSWeaponData_SetHeadshotMultiplier(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetHeadshotMultiplier(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -754,7 +754,7 @@ static cell_t CSWeaponData_GetArmorRatio(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->ArmorRatio());
 }
 
@@ -765,7 +765,7 @@ static cell_t CSWeaponData_SetArmorRatio(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetArmorRatio(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -774,7 +774,7 @@ static cell_t CSWeaponData_GetPenetration(IPluginContext* pContext, const cell_t
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->Penetration());
 }
 
@@ -785,7 +785,7 @@ static cell_t CSWeaponData_SetPenetration(IPluginContext* pContext, const cell_t
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetPenetration(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -794,7 +794,7 @@ static cell_t CSWeaponData_GetFlinchVelocityModifierLarge(IPluginContext* pConte
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->FlinchVelocityModifierLarge());
 }
 
@@ -805,7 +805,7 @@ static cell_t CSWeaponData_SetFlinchVelocityModifierLarge(IPluginContext* pConte
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetFlinchVelocityModifierLarge(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -814,7 +814,7 @@ static cell_t CSWeaponData_GetFlinchVelocityModifierSmall(IPluginContext* pConte
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->FlinchVelocityModifierSmall());
 }
 
@@ -825,7 +825,7 @@ static cell_t CSWeaponData_SetFlinchVelocityModifierSmall(IPluginContext* pConte
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetFlinchVelocityModifierSmall(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -834,7 +834,7 @@ static cell_t CSWeaponData_GetRange(IPluginContext* pContext, const cell_t* para
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->Range());
 }
 
@@ -845,7 +845,7 @@ static cell_t CSWeaponData_SetRange(IPluginContext* pContext, const cell_t* para
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRange(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -854,7 +854,7 @@ static cell_t CSWeaponData_GetRangeModifier(IPluginContext* pContext, const cell
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RangeModifier());
 }
 
@@ -865,7 +865,7 @@ static cell_t CSWeaponData_SetRangeModifier(IPluginContext* pContext, const cell
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRangeModifier(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -874,7 +874,7 @@ static cell_t CSWeaponData_GetThrowVelocity(IPluginContext* pContext, const cell
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->ThrowVelocity());
 }
 
@@ -885,7 +885,7 @@ static cell_t CSWeaponData_SetThrowVelocity(IPluginContext* pContext, const cell
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetThrowVelocity(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -894,7 +894,7 @@ static cell_t CSWeaponData_GetMaxPlayerSpeed(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->MaxPlayerSpeed());
 }
 
@@ -905,7 +905,7 @@ static cell_t CSWeaponData_SetMaxPlayerSpeed(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetMaxPlayerSpeed(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -914,7 +914,7 @@ static cell_t CSWeaponData_GetMaxPlayerSpeedAlt(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->MaxPlayerSpeedAlt());
 }
 
@@ -925,7 +925,7 @@ static cell_t CSWeaponData_SetMaxPlayerSpeedAlt(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetMaxPlayerSpeedAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -934,7 +934,7 @@ static cell_t CSWeaponData_GetAttackMovespeedFactor(IPluginContext* pContext, co
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->AttackMovespeedFactor());
 }
 
@@ -945,7 +945,7 @@ static cell_t CSWeaponData_SetAttackMovespeedFactor(IPluginContext* pContext, co
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetAttackMovespeedFactor(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -954,7 +954,7 @@ static cell_t CSWeaponData_GetSpread(IPluginContext* pContext, const cell_t* par
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->Spread());
 }
 
@@ -965,7 +965,7 @@ static cell_t CSWeaponData_SetSpread(IPluginContext* pContext, const cell_t* par
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetSpread(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -974,7 +974,7 @@ static cell_t CSWeaponData_GetSpreadAlt(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->SpreadAlt());
 }
 
@@ -985,7 +985,7 @@ static cell_t CSWeaponData_SetSpreadAlt(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetSpreadAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -994,7 +994,7 @@ static cell_t CSWeaponData_GetInaccuracyCrouch(IPluginContext* pContext, const c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyCrouch());
 }
 
@@ -1005,7 +1005,7 @@ static cell_t CSWeaponData_SetInaccuracyCrouch(IPluginContext* pContext, const c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyCrouch(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1014,7 +1014,7 @@ static cell_t CSWeaponData_GetInaccuracyCrouchAlt(IPluginContext* pContext, cons
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyCrouchAlt());
 }
 
@@ -1025,7 +1025,7 @@ static cell_t CSWeaponData_SetInaccuracyCrouchAlt(IPluginContext* pContext, cons
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyCrouchAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1034,7 +1034,7 @@ static cell_t CSWeaponData_GetInaccuracyStand(IPluginContext* pContext, const ce
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyStand());
 }
 
@@ -1045,7 +1045,7 @@ static cell_t CSWeaponData_SetInaccuracyStand(IPluginContext* pContext, const ce
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyStand(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1054,7 +1054,7 @@ static cell_t CSWeaponData_GetInaccuracyStandAlt(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyStandAlt());
 }
 
@@ -1065,7 +1065,7 @@ static cell_t CSWeaponData_SetInaccuracyStandAlt(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyStandAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1074,7 +1074,7 @@ static cell_t CSWeaponData_GetInaccuracyJumpInitial(IPluginContext* pContext, co
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyJumpInitial());
 }
 
@@ -1085,7 +1085,7 @@ static cell_t CSWeaponData_SetInaccuracyJumpInitial(IPluginContext* pContext, co
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyJumpInitial(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1094,7 +1094,7 @@ static cell_t CSWeaponData_GetInaccuracyJumpApex(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyJumpApex());
 }
 
@@ -1105,7 +1105,7 @@ static cell_t CSWeaponData_SetInaccuracyJumpApex(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyJumpApex(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1114,7 +1114,7 @@ static cell_t CSWeaponData_GetInaccuracyJump(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyJump());
 }
 
@@ -1125,7 +1125,7 @@ static cell_t CSWeaponData_SetInaccuracyJump(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyJump(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1134,7 +1134,7 @@ static cell_t CSWeaponData_GetInaccuracyJumpAlt(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyJumpAlt());
 }
 
@@ -1145,7 +1145,7 @@ static cell_t CSWeaponData_SetInaccuracyJumpAlt(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyJumpAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1154,7 +1154,7 @@ static cell_t CSWeaponData_GetInaccuracyLand(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyLand());
 }
 
@@ -1165,7 +1165,7 @@ static cell_t CSWeaponData_SetInaccuracyLand(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyLand(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1174,7 +1174,7 @@ static cell_t CSWeaponData_GetInaccuracyLandAlt(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyLandAlt());
 }
 
@@ -1185,7 +1185,7 @@ static cell_t CSWeaponData_SetInaccuracyLandAlt(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyLandAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1194,7 +1194,7 @@ static cell_t CSWeaponData_GetInaccuracyLadder(IPluginContext* pContext, const c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyLadder());
 }
 
@@ -1205,7 +1205,7 @@ static cell_t CSWeaponData_SetInaccuracyLadder(IPluginContext* pContext, const c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyLadder(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1214,7 +1214,7 @@ static cell_t CSWeaponData_GetInaccuracyLadderAlt(IPluginContext* pContext, cons
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyLadderAlt());
 }
 
@@ -1225,7 +1225,7 @@ static cell_t CSWeaponData_SetInaccuracyLadderAlt(IPluginContext* pContext, cons
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyLadderAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1234,7 +1234,7 @@ static cell_t CSWeaponData_GetInaccuracyFire(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyFire());
 }
 
@@ -1245,7 +1245,7 @@ static cell_t CSWeaponData_SetInaccuracyFire(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyFire(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1254,7 +1254,7 @@ static cell_t CSWeaponData_GetInaccuracyFireAlt(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyFireAlt());
 }
 
@@ -1265,7 +1265,7 @@ static cell_t CSWeaponData_SetInaccuracyFireAlt(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyFireAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1274,7 +1274,7 @@ static cell_t CSWeaponData_GetInaccuracyMove(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyMove());
 }
 
@@ -1285,7 +1285,7 @@ static cell_t CSWeaponData_SetInaccuracyMove(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyMove(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1294,7 +1294,7 @@ static cell_t CSWeaponData_GetInaccuracyMoveAlt(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyMoveAlt());
 }
 
@@ -1305,7 +1305,7 @@ static cell_t CSWeaponData_SetInaccuracyMoveAlt(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyMoveAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1314,7 +1314,7 @@ static cell_t CSWeaponData_GetInaccuracyReload(IPluginContext* pContext, const c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyReload());
 }
 
@@ -1325,7 +1325,7 @@ static cell_t CSWeaponData_SetInaccuracyReload(IPluginContext* pContext, const c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyReload(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1334,7 +1334,7 @@ static cell_t CSWeaponData_GetRecoilAngle(IPluginContext* pContext, const cell_t
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilAngle());
 }
 
@@ -1345,7 +1345,7 @@ static cell_t CSWeaponData_SetRecoilAngle(IPluginContext* pContext, const cell_t
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilAngle(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1354,7 +1354,7 @@ static cell_t CSWeaponData_GetRecoilAngleAlt(IPluginContext* pContext, const cel
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilAngleAlt());
 }
 
@@ -1365,7 +1365,7 @@ static cell_t CSWeaponData_SetRecoilAngleAlt(IPluginContext* pContext, const cel
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilAngleAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1374,7 +1374,7 @@ static cell_t CSWeaponData_GetRecoilAngleVariance(IPluginContext* pContext, cons
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilAngleVariance());
 }
 
@@ -1385,7 +1385,7 @@ static cell_t CSWeaponData_SetRecoilAngleVariance(IPluginContext* pContext, cons
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilAngleVariance(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1394,7 +1394,7 @@ static cell_t CSWeaponData_GetRecoilAngleVarianceAlt(IPluginContext* pContext, c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilAngleVarianceAlt());
 }
 
@@ -1405,7 +1405,7 @@ static cell_t CSWeaponData_SetRecoilAngleVarianceAlt(IPluginContext* pContext, c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilAngleVarianceAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1414,7 +1414,7 @@ static cell_t CSWeaponData_GetRecoilMagnitude(IPluginContext* pContext, const ce
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilMagnitude());
 }
 
@@ -1425,7 +1425,7 @@ static cell_t CSWeaponData_SetRecoilMagnitude(IPluginContext* pContext, const ce
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilMagnitude(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1434,7 +1434,7 @@ static cell_t CSWeaponData_GetRecoilMagnitudeAlt(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilMagnitudeAlt());
 }
 
@@ -1445,7 +1445,7 @@ static cell_t CSWeaponData_SetRecoilMagnitudeAlt(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilMagnitudeAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1454,7 +1454,7 @@ static cell_t CSWeaponData_GetRecoilMagnitudeVariance(IPluginContext* pContext, 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilMagnitudeVariance());
 }
 
@@ -1465,7 +1465,7 @@ static cell_t CSWeaponData_SetRecoilMagnitudeVariance(IPluginContext* pContext, 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilMagnitudeVariance(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1474,7 +1474,7 @@ static cell_t CSWeaponData_GetRecoilMagnitudeVarianceAlt(IPluginContext* pContex
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoilMagnitudeVarianceAlt());
 }
 
@@ -1485,7 +1485,7 @@ static cell_t CSWeaponData_SetRecoilMagnitudeVarianceAlt(IPluginContext* pContex
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoilMagnitudeVarianceAlt(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1494,7 +1494,7 @@ static cell_t CSWeaponData_GetRecoveryTimeCrouch(IPluginContext* pContext, const
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoveryTimeCrouch());
 }
 
@@ -1505,7 +1505,7 @@ static cell_t CSWeaponData_SetRecoveryTimeCrouch(IPluginContext* pContext, const
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTimeCrouch(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1514,7 +1514,7 @@ static cell_t CSWeaponData_GetRecoveryTimeStand(IPluginContext* pContext, const 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoveryTimeStand());
 }
 
@@ -1525,7 +1525,7 @@ static cell_t CSWeaponData_SetRecoveryTimeStand(IPluginContext* pContext, const 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTimeStand(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1534,7 +1534,7 @@ static cell_t CSWeaponData_GetRecoveryTimeCrouchFinal(IPluginContext* pContext, 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoveryTimeCrouchFinal());
 }
 
@@ -1545,7 +1545,7 @@ static cell_t CSWeaponData_SetRecoveryTimeCrouchFinal(IPluginContext* pContext, 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTimeCrouchFinal(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1554,7 +1554,7 @@ static cell_t CSWeaponData_GetRecoveryTimeStandFinal(IPluginContext* pContext, c
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->RecoveryTimeStandFinal());
 }
 
@@ -1565,7 +1565,7 @@ static cell_t CSWeaponData_SetRecoveryTimeStandFinal(IPluginContext* pContext, c
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetRecoveryTimeStandFinal(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1574,7 +1574,7 @@ static cell_t CSWeaponData_GetZoomTime0(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->ZoomTime0());
 }
 
@@ -1585,7 +1585,7 @@ static cell_t CSWeaponData_SetZoomTime0(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomTime0(sp_ctof(sp_ctof(params[2])));
-    
+
     return 1;
 }
 
@@ -1594,7 +1594,7 @@ static cell_t CSWeaponData_GetZoomTime1(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->ZoomTime1());
 }
 
@@ -1605,7 +1605,7 @@ static cell_t CSWeaponData_SetZoomTime1(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomTime1(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1614,7 +1614,7 @@ static cell_t CSWeaponData_GetZoomTime2(IPluginContext* pContext, const cell_t* 
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->ZoomTime2());
 }
 
@@ -1625,7 +1625,7 @@ static cell_t CSWeaponData_SetZoomTime2(IPluginContext* pContext, const cell_t* 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetZoomTime2(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1634,7 +1634,7 @@ static cell_t CSWeaponData_GetAddonScale(IPluginContext* pContext, const cell_t*
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->AddonScale());
 }
 
@@ -1645,7 +1645,7 @@ static cell_t CSWeaponData_SetAddonScale(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetAddonScale(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1654,7 +1654,7 @@ static cell_t CSWeaponData_GetHeatPerShot(IPluginContext* pContext, const cell_t
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->HeatPerShot());
 }
 
@@ -1665,7 +1665,7 @@ static cell_t CSWeaponData_SetHeatPerShot(IPluginContext* pContext, const cell_t
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetHeatPerShot(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1674,7 +1674,7 @@ static cell_t CSWeaponData_GetInaccuracyPitchShift(IPluginContext* pContext, con
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracyPitchShift());
 }
 
@@ -1685,7 +1685,7 @@ static cell_t CSWeaponData_SetInaccuracyPitchShift(IPluginContext* pContext, con
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracyPitchShift(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1694,7 +1694,7 @@ static cell_t CSWeaponData_GetInaccuracySoundThreshold(IPluginContext* pContext,
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->InaccuracySoundThreshold());
 }
 
@@ -1705,7 +1705,7 @@ static cell_t CSWeaponData_SetInaccuracySoundThreshold(IPluginContext* pContext,
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetInaccuracySoundThreshold(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -1714,7 +1714,7 @@ static cell_t CSWeaponData_GetBotAudibleRange(IPluginContext* pContext, const ce
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
-    
+
     return sp_ftoc(pCCSWeaponData->BotAudibleRange());
 }
 
@@ -1725,7 +1725,7 @@ static cell_t CSWeaponData_SetBotAudibleRange(IPluginContext* pContext, const ce
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetBotAudibleRange(sp_ctof(params[2]));
-    
+
     return 1;
 }
 
@@ -2238,7 +2238,7 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.IsRevolver.get",                        CSWeaponData_GetIsRevolver },
     { "CSWeaponData.IsRevolver.set",                        CSWeaponData_SetIsRevolver },
     { "CSWeaponData.CannotShootUnderwater.get",             CSWeaponData_GetCannotShootUnderwater },
-    { "CSWeaponData.CannotShootUnderwater.set",             CSWeaponData_SetCannotShootUnderwater }, 
+    { "CSWeaponData.CannotShootUnderwater.set",             CSWeaponData_SetCannotShootUnderwater },
 
     { "CSWeaponData.MaxClip1.get",                          CSWeaponData_GetMaxClip1 },
     { "CSWeaponData.MaxClip1.set",                          CSWeaponData_SetMaxClip1 },
@@ -2432,4 +2432,4 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.SetZoomOutSound",                       CSWeaponData_SetZoomOutSound },
 
     { nullptr,  nullptr }
-}; 
+};

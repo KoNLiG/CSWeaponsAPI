@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #ifndef _INCLUDE_SOURCEMOD_EXTENSION_CONFIG_H_
@@ -34,7 +34,7 @@
 #define SMEXT_CONF_LICENSE		"GPL"
 #define SMEXT_CONF_DATESTRING	__DATE__
 
-/** 
+/**
  * @brief Exposes plugin's main interface.
  */
 #define SMEXT_LINK(name) SDKExtension *g_pExtensionIface = name;
@@ -43,7 +43,7 @@
  * @brief Sets whether or not this plugin required Metamod.
  * NOTE: Uncomment to enable, comment to disable.
  */
-//#define SMEXT_CONF_METAMOD		
+//#define SMEXT_CONF_METAMOD
 
 /** Enable interfaces you want to use here by uncommenting lines */
 #define SMEXT_ENABLE_FORWARDSYS

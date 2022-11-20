@@ -98,12 +98,12 @@ class ExtensionConfig(object):
       self.configure_linux(cxx)
     elif builder.target_platform == 'windows':
       self.configure_windows(cxx)
-    
+
     # Finish up.
     cxx.includes += [
       os.path.join(self.sm_root, 'public'),
     ]
-    
+
   def configure_gcc(self, cxx):
     cxx.defines += [
       'stricmp=strcasecmp',
@@ -218,7 +218,7 @@ class ExtensionConfig(object):
 
   def configure_windows(self, cxx):
     cxx.defines += ['WIN32', '_WINDOWS']
-    
+
   def ConfigureForExtension(self, context, compiler):
     compiler.cxxincludes += [
       os.path.join(context.currentSourcePath),

@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 #include "extension.h"
@@ -23,26 +23,26 @@ CCSWeaponData* GetCCSWeaponData(CEconItemView* pView)
 {
     static ICallWrapper *pWrapper = NULL;
 
-	if (!pWrapper)
-	{
-        void *addr; 
-	    if (!g_pGameConf->GetMemSig("GetCCSWeaponData", &addr) || !addr) 
-	    { 
-	    	g_pSM->LogError(myself, "Failed to lookup GetCCSWeaponData signature."); 
-	    	return nullptr; 
-	    }
+    if (!pWrapper)
+    {
+        void *addr;
+        if (!g_pGameConf->GetMemSig("GetCCSWeaponData", &addr) || !addr)
+        {
+            g_pSM->LogError(myself, "Failed to lookup GetCCSWeaponData signature.");
+            return nullptr;
+        }
 
-		PassInfo retpass;
-		retpass.flags = PASSFLAG_BYVAL;
-		retpass.type = PassType_Basic;
-		retpass.size = sizeof(CCSWeaponData *);
-		pWrapper = g_pBinTools->CreateCall(addr, CallConv_ThisCall, &retpass, NULL, 0);
-	}
+        PassInfo retpass;
+        retpass.flags = PASSFLAG_BYVAL;
+        retpass.type = PassType_Basic;
+        retpass.size = sizeof(CCSWeaponData *);
+        pWrapper = g_pBinTools->CreateCall(addr, CallConv_ThisCall, &retpass, NULL, 0);
+    }
 
-	ArgBuffer<CEconItemView*> vstk(pView);
+    ArgBuffer<CEconItemView*> vstk(pView);
 
-	CCSWeaponData *pWpnData = nullptr;
-	pWrapper->Execute(vstk, &pWpnData);
+    CCSWeaponData *pWpnData = nullptr;
+    pWrapper->Execute(vstk, &pWpnData);
 
-	return pWpnData;
+    return pWpnData;
 }
