@@ -5,14 +5,14 @@ on:
   # Don't run if files doesn't effect building.
   push:
     branches: [ master ]
-    paths-ignore: 
+    paths-ignore:
       - LICENSE
       - README.md
       - sourcemod/**
 
   pull_request:
     branches: [ master ]
-    paths-ignore: 
+    paths-ignore:
       - LICENSE
       - README.md
       - sourcemod/**
@@ -24,11 +24,12 @@ jobs:
   build:
     name: ⚙️ Build on ${{ matrix.os_short }}
     runs-on: ${{ matrix.os }}
+      using: 'node16'
     strategy:
       fail-fast: false
       matrix:
         # Compile on Linux & Windows.
-        os: 
+        os:
           - ubuntu-latest
           - windows-latest
 
@@ -49,7 +50,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-      
+
       # Install dependencies
       - name: 👷 Install AMBuild
         run: |
@@ -62,7 +63,7 @@ jobs:
           sudo dpkg --add-architecture i386
           sudo apt-get update
           sudo apt-get install -y clang g++-multilib
-      
+
       - name: 🖨️ Select clang compiler (🐧)
         if: runner.os == 'Linux'
         run: |
@@ -97,7 +98,7 @@ jobs:
       - name: ✔️ Checkout hl2sdk-csgo
         uses: actions/checkout@v2
         with:
-          repository: Wend4r/hl2sdk
+          repository: alliedmodders/hl2sdk
           ref: ${{ matrix.sdk_branch }}
           path: hl2sdk-${{ matrix.sdk_branch }}
 
