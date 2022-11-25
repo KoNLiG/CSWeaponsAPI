@@ -229,6 +229,26 @@ static cell_t CSWeaponData_SetItemDef(IPluginContext* pContext, const cell_t* pa
     return 1;
 }
 
+static cell_t CSWeaponData_GetDefinition(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return reinterpret_cast<cell_t>(pCCSWeaponData->Definition());
+}
+
+static cell_t CSWeaponData_SetDefinition(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetDefinition(reinterpret_cast<CEconItemDefinition*>(params[2]));
+
+    return 1;
+}
+
 static cell_t CSWeaponData_GetMaxClip1(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -2262,6 +2282,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
 
     { "CSWeaponData.ItemDef.get",                           CSWeaponData_GetItemDef },
     { "CSWeaponData.ItemDef.set",                           CSWeaponData_SetItemDef },
+    { "CSWeaponData.Definition.get",                        CSWeaponData_GetDefinition },
+    { "CSWeaponData.Definition.set",                        CSWeaponData_SetDefinition },
     { "CSWeaponData.MaxClip1.get",                          CSWeaponData_GetMaxClip1 },
     { "CSWeaponData.MaxClip1.set",                          CSWeaponData_SetMaxClip1 },
     { "CSWeaponData.MaxClip2.get",                          CSWeaponData_GetMaxClip2 },

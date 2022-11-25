@@ -177,6 +177,15 @@ methodmap CSWeaponData
         public native set(int value);
     }
 
+    // Retrieves the weapon item definition memory address. (CEconItemDefinition)
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property Address Definition
+    {
+        public native get();
+        public native set(Address value);
+    }
+
     // Retrieves the weapon maximum 1 clip. (m_iMaxClip1)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -1209,6 +1218,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
 
     MarkNativeAsOptional("CSWeaponData.ItemDef.get");
     MarkNativeAsOptional("CSWeaponData.ItemDef.set");
+    MarkNativeAsOptional("CSWeaponData.Definition.get");
+    MarkNativeAsOptional("CSWeaponData.Definition.set");
     MarkNativeAsOptional("CSWeaponData.MaxClip1.get");
     MarkNativeAsOptional("CSWeaponData.MaxClip1.set");
     MarkNativeAsOptional("CSWeaponData.MaxClip2.get");
