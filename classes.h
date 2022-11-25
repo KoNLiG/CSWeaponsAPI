@@ -109,6 +109,7 @@ public:
     int ZoomFov2() const 									 { return m_iZoomFov2; }
     int TracerFrequency() const 							 { return m_iTracerFrequency; }
     int TracerFrequencyAlt() const 							 { return m_iTracerFrequencyAlt; }
+    int UsedByTeam() const                                   { return m_nUsedByTeam; }
 
     CSWeaponType WeaponType() const 						 { return m_iWeaponType; }
     CSBotDifficultyType BotDifficultyType() const            { return m_BotDifficultyType; }
@@ -140,6 +141,7 @@ public:
     void SetZoomFov2(int value) 							 { m_iZoomFov2 = value; }
     void SetTracerFrequency(int value) 						 { m_iTracerFrequency = value; }
     void SetTracerFrequencyAlt(int value) 					 { m_iTracerFrequencyAlt = value; }
+    void SetUsedByTeam(int value)                            { m_nUsedByTeam = value; }
 
     void SetWeaponType(CSWeaponType value)					 { m_iWeaponType = value; }
     void SetBotDifficultyType(CSBotDifficultyType value)	 { m_BotDifficultyType = value; }
@@ -339,7 +341,7 @@ private:
     float m_flTimeToIdle;                   // 228 [4]
     float m_flIdleInterval;                 // 232 [4]
     bool m_bFullAuto;                       // 236 [1]
-    char padding_9[3];                      // 237 [3]
+    char padding_8[3];                      // 237 [3]
     int m_iDamage;                          // 240 [4]
     float m_flHeadshotMultiplier;			// 244 [4]
     float m_flArmorRatio;                   // 248 [4]
@@ -350,9 +352,9 @@ private:
     float m_flRange;                        // 268 [4]
     float m_flRangeModifier;                // 272 [4]
     float m_flThrowVelocity;                // 276 [4]
-    char padding_10[12];                    // 280 [12]
+    char padding_9[12];                     // 280 [12]
     bool m_bHasSilencer;                    // 292 [1]
-    char padding_11[3];                     // 293 [3]
+    char padding_10[3];                     // 293 [3]
     char* m_pSilencerModel;                 // 296 [4]
     int m_iCrosshairMinDistance;            // 300 [4]
     int m_iCrosshairDeltaDistance;          // 304 [4]
@@ -396,7 +398,7 @@ private:
     int m_iRecoveryTransitionEndBullet;	    // 456 [4]
     bool m_bUnzoomAfterShot;				// 460 [1]
     bool m_bHideViewModelZoomed;			// 461 [1]
-    char padding_12[2];					    // 462 [2]
+    char padding_11[2];					    // 462 [2]
     int m_iZoomLevels;					    // 464 [4]
     int m_iZoomFov1;						// 468 [4]
     int m_iZoomFov2;						// 472 [4]
@@ -404,16 +406,16 @@ private:
     float m_flZoomTime1;					// 480 [4]
     float m_flZoomTime2;					// 484 [4]
     char* m_szAddonlocation;                // 488 [4]
-    char padding_13[4];					    // 492 [4]
+    char padding_12[4];					    // 492 [4]
     float m_flAddonScale;					// 496 [4]
     char* m_szEjectBrassEffect;             // 500 [4]
     char* m_szTracerEffect;                 // 504 [4]
     int m_iTracerFrequency;                 // 508 [4]
     int m_iTracerFrequencyAlt;              // 512 [4]
     char* m_szMuzzleFlashEffect1stPerson;   // 516 [4]
-    char padding_14[4];                     // 520 [4]
+    char padding_13[4];                     // 520 [4]
     char* m_szMuzzleFlashEffect3stPerson;   // 524 [4]
-    char padding_15[4];                     // 528 [4]
+    char padding_14[4];                     // 528 [4]
     char* m_szHeatEffect;            		// 532 [4]
     float m_flHeatPerShot;                  // 536 [4]
     char* m_szZoomInSound;                  // 540 [4]
@@ -421,7 +423,9 @@ private:
     float m_flInaccuracyPitchShift;         // 548 [4]
     float m_flInaccuracySoundThreshold;     // 552 [4]
     float m_flBotAudibleRange;              // 556 [4]
-    char padding_16[12];                    // 560 [12]
+    char padding_15[4];                     // 560 [4]
+    int m_nUsedByTeam;                      // 564 [4]
+    char padding_16[4];                     // 568 [4]
     bool m_bHasBurstMode;                   // 572 [1]
     bool m_bIsRevolver;                     // 573 [1]
     bool m_bCannotShootUnderwater;		    // 574 [1]

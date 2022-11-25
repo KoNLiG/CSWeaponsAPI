@@ -789,6 +789,26 @@ static cell_t CSWeaponData_SetTracerFrequencyAlt(IPluginContext* pContext, const
     return 1;
 }
 
+static cell_t CSWeaponData_GetUsedByTeam(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->UsedByTeam();
+}
+
+static cell_t CSWeaponData_SetUsedByTeam(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetUsedByTeam(params[2]);
+
+    return 1;
+}
+
 static cell_t CSWeaponData_GetWeaponType(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -2479,6 +2499,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.TracerFrequency.set",                   CSWeaponData_SetTracerFrequency },
     { "CSWeaponData.TracerFrequencyAlt.get",                CSWeaponData_GetTracerFrequencyAlt },
     { "CSWeaponData.TracerFrequencyAlt.set",                CSWeaponData_SetTracerFrequencyAlt },
+    { "CSWeaponData.UsedByTeam.get",                        CSWeaponData_GetUsedByTeam },
+    { "CSWeaponData.UsedByTeam.set",                        CSWeaponData_SetUsedByTeam },
     { "CSWeaponData.WeaponType.get",                        CSWeaponData_GetWeaponType },
     { "CSWeaponData.WeaponType.set",                        CSWeaponData_SetWeaponType },
     { "CSWeaponData.BotDifficultyType.get",                 CSWeaponData_GetBotDifficultyType },

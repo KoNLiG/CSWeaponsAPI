@@ -453,6 +453,15 @@ methodmap CSWeaponData
         public native set(int value);
     }
 
+    // Retrieves the team index (CS_TEAM...) this weapon is designated to.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int UsedByTeam
+    {
+        public native get();
+        public native set(int value);
+    }
+
     // Retrieves the weapon type. See the enum above.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -1362,6 +1371,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.TracerFrequency.set");
     MarkNativeAsOptional("CSWeaponData.TracerFrequencyAlt.get");
     MarkNativeAsOptional("CSWeaponData.TracerFrequencyAlt.set");
+    MarkNativeAsOptional("CSWeaponData.UsedByTeam.get");
+    MarkNativeAsOptional("CSWeaponData.UsedByTeam.set");
     MarkNativeAsOptional("CSWeaponData.WeaponType.get");
     MarkNativeAsOptional("CSWeaponData.WeaponType.set");
     MarkNativeAsOptional("CSWeaponData.BotDifficultyType.get");
