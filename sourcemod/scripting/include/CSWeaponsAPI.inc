@@ -168,6 +168,15 @@ methodmap CSWeaponData
         public native set(bool value);
     }
 
+    // Retrieves the weapon item definition. (m_iItemDefinitionIndex)
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int ItemDef
+    {
+        public native get();
+        public native set(int value);
+    }
+
     // Retrieves the weapon maximum 1 clip. (m_iMaxClip1)
     //
     // @error              Invalid CSWeaponData. (null)
@@ -1198,6 +1207,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.CannotShootUnderwater.get");
     MarkNativeAsOptional("CSWeaponData.CannotShootUnderwater.set");
 
+    MarkNativeAsOptional("CSWeaponData.ItemDef.get");
+    MarkNativeAsOptional("CSWeaponData.ItemDef.set");
     MarkNativeAsOptional("CSWeaponData.MaxClip1.get");
     MarkNativeAsOptional("CSWeaponData.MaxClip1.set");
     MarkNativeAsOptional("CSWeaponData.MaxClip2.get");

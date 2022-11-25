@@ -209,6 +209,26 @@ static cell_t CSWeaponData_SetCannotShootUnderwater(IPluginContext* pContext, co
     return 1;
 }
 
+static cell_t CSWeaponData_GetItemDef(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->ItemDef();
+}
+
+static cell_t CSWeaponData_SetItemDef(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetItemDef(params[2]);
+
+    return 1;
+}
+
 static cell_t CSWeaponData_GetMaxClip1(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -2240,6 +2260,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.CannotShootUnderwater.get",             CSWeaponData_GetCannotShootUnderwater },
     { "CSWeaponData.CannotShootUnderwater.set",             CSWeaponData_SetCannotShootUnderwater },
 
+    { "CSWeaponData.ItemDef.get",                           CSWeaponData_GetItemDef },
+    { "CSWeaponData.ItemDef.set",                           CSWeaponData_SetItemDef },
     { "CSWeaponData.MaxClip1.get",                          CSWeaponData_GetMaxClip1 },
     { "CSWeaponData.MaxClip1.set",                          CSWeaponData_SetMaxClip1 },
     { "CSWeaponData.MaxClip2.get",                          CSWeaponData_GetMaxClip2 },

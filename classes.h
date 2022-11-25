@@ -63,6 +63,7 @@ public:
     void SetCannotShootUnderwater(bool value)              	 { m_bCannotShootUnderwater = value; }
 
     // Integers
+    uint16 ItemDef() const                                   { return m_nDefIndex; }
     int MaxClip1() const 									 { return m_iMaxClip1; }
     int MaxClip2() const 									 { return m_iMaxClip2; }
     int DefaultClip1() const 								 { return m_iDefaultClip1; }
@@ -88,6 +89,7 @@ public:
     CSWeaponType WeaponType() const 						 { return m_iWeaponType; }
 
     // Setters
+    void SetItemDef(int value)                               { m_nDefIndex = value; }
     void SetMaxClip1(int value) 							 { m_iMaxClip1 = value; }
     void SetMaxClip2(int value) 							 { m_iMaxClip2 = value; }
     void SetDefaultClip1(int value) 						 { m_iDefaultClip1 = value; }
@@ -267,7 +269,8 @@ public:
 private:
     void* m_pVTable;                        // 0 [4]
     char* m_szClassName;                  	// 4 [4]
-    char padding[12];                       // 8 [12]
+    uint16 m_nDefIndex;                     // 8 [2]
+    char padding[10];                       // 10 [10]
     int m_iMaxClip1;                        // 20 [4]
     int m_iMaxClip2;                        // 24 [4]
     int m_iDefaultClip1;                    // 28 [4]
