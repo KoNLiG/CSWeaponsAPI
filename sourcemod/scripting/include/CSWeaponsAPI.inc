@@ -21,6 +21,16 @@
 #endif
 #define _CSWeaponsAPI_included
 
+// 'CSWeaponData.ItemFlags' values.
+#define WEAPON_FLAG_SELECT_ON_EMPTY	(1 << 0)		// "itemflag select on empty" attribute
+#define WEAPON_FLAG_NO_AUTO_RELOAD	(1 << 1)        // "itemflag no auto reload" attribute
+#define WEAPON_FLAG_NO_AUTO_SWITCH	(1 << 2)        // "itemflag no auto switch empty" attribute
+#define WEAPON_FLAG_LIMIT_IN_WORLD	(1 << 3)        // "itemflag limit in world" attribute
+#define WEAPON_FLAG_EXHAUSTIBLE	    (1 << 4)        // "itemflag exhaustible" attribute
+#define WEAPON_FLAG_HIT_LOCATION	(1 << 5)        // "itemflag do hit location dmg" attribute
+#define WEAPON_FLAG_NO_AMMO_PICKUP	(1 << 6)        // "itemflag no ammo pickups" attribute
+#define WEAPON_FLAG_NO_ITEM_PICKUP	(1 << 7)        // "itemflag no item pickup" attribute
+
 enum CSWeaponType
 {
     WEAPONTYPE_KNIFE = 0,
@@ -35,6 +45,19 @@ enum CSWeaponType
     WEAPONTYPE_EQUIPMENT,
     WEAPONTYPE_STACKABLEITEM,
     WEAPONTYPE_UNKNOWN
+};
+
+/**
+ * 'CSWeaponData.BotDifficultyType' values.
+ */
+enum CSBotDifficultyType
+{
+	BOT_EASY = 0,
+	BOT_NORMAL = 1,
+	BOT_HARD = 2,
+	BOT_EXPERT = 3,
+
+	NUM_DIFFICULTY_LEVELS
 };
 
 // Retrieves an entity 'CEconItemView' memory address.
@@ -97,6 +120,33 @@ methodmap CSWeaponData
     //
     // @return		CCSWeaponData sizeof.
     public static native int Size();
+
+    // Retrieves whether hand flipping is allowed while using this weapon.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property bool AllowHandFlipping
+    {
+        public native get();
+        public native set(bool value);
+    }
+
+    // Retrieves whether this weapon model is explicitly a right handed model.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property bool ModelRightHanded
+    {
+        public native get();
+        public native set(bool value);
+    }
+
+    // Retrieves whether this is a melee weapon.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property bool IsMeleeWeapon
+    {
+        public native get();
+        public native set(bool value);
+    }
 
     // Retrieves whether this weapon (CSWeaponData) has a silencer.
     //
@@ -240,6 +290,34 @@ methodmap CSWeaponData
         public native set(int value);
     }
 
+    // Retrieves the weapon flags. See the defines above.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int ItemFlags
+    {
+        public native get();
+        public native set(int value);
+    }
+
+    // Retrieves the weapon weight.
+    // This value used to determine this weapon's importance in autoselection.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int Weight
+    {
+        public native get();
+        public native set(int value);
+    }
+
+    // Retrieves the weapon rumble effect index.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int RumbleEffect
+    {
+        public native get();
+        public native set(int value);
+    }
+
     // Retrieves the weapon purchase price.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -375,13 +453,22 @@ methodmap CSWeaponData
         public native set(int value);
     }
 
-    // Retrieves the weapon CSWeaponType value.
+    // Retrieves the weapon type. See the enum above.
     //
     // @error              Invalid CSWeaponData. (null)
     property CSWeaponType WeaponType
     {
         public native get();
         public native set(CSWeaponType value);
+    }
+
+    // Retrieves the weapon bot difficulty type. See the enum above.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property CSBotDifficultyType BotDifficultyType
+    {
+        public native get();
+        public native set(CSBotDifficultyType value);
     }
 
     // Retrieves the weapon cycle time.
@@ -1200,7 +1287,14 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.GetByClassName");
     MarkNativeAsOptional("CSWeaponData.GetByIndex");
     MarkNativeAsOptional("CSWeaponData.Count");
-    MarkNativeAsOptional("CSWeaponData.Size")
+    MarkNativeAsOptional("CSWeaponData.Size");
+
+    MarkNativeAsOptional("CSWeaponData.AllowHandFlipping.get");
+    MarkNativeAsOptional("CSWeaponData.AllowHandFlipping.set");
+    MarkNativeAsOptional("CSWeaponData.ModelRightHanded.get");
+    MarkNativeAsOptional("CSWeaponData.ModelRightHanded.set");
+    MarkNativeAsOptional("CSWeaponData.IsMeleeWeapon.get");
+    MarkNativeAsOptional("CSWeaponData.IsMeleeWeapon.set");
     MarkNativeAsOptional("CSWeaponData.HasSilencer.get");
     MarkNativeAsOptional("CSWeaponData.HasSilencer.set");
     MarkNativeAsOptional("CSWeaponData.FullAuto.get");
@@ -1232,6 +1326,12 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.PrimaryReserveAmmoMax.set");
     MarkNativeAsOptional("CSWeaponData.SecondaryReserveAmmoMax.get");
     MarkNativeAsOptional("CSWeaponData.SecondaryReserveAmmoMax.set");
+    MarkNativeAsOptional("CSWeaponData.ItemFlags.get");
+    MarkNativeAsOptional("CSWeaponData.ItemFlags.set");
+    MarkNativeAsOptional("CSWeaponData.Weight.get");
+    MarkNativeAsOptional("CSWeaponData.Weight.set");
+    MarkNativeAsOptional("CSWeaponData.RumbleEffect.get");
+    MarkNativeAsOptional("CSWeaponData.RumbleEffect.set");
     MarkNativeAsOptional("CSWeaponData.WeaponPrice.get");
     MarkNativeAsOptional("CSWeaponData.WeaponPrice.set");
     MarkNativeAsOptional("CSWeaponData.KillAward.get");
@@ -1264,6 +1364,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.TracerFrequencyAlt.set");
     MarkNativeAsOptional("CSWeaponData.WeaponType.get");
     MarkNativeAsOptional("CSWeaponData.WeaponType.set");
+    MarkNativeAsOptional("CSWeaponData.BotDifficultyType.get");
+    MarkNativeAsOptional("CSWeaponData.BotDifficultyType.set");
 
     MarkNativeAsOptional("CSWeaponData.CycleTime.get");
     MarkNativeAsOptional("CSWeaponData.CycleTime.set");

@@ -69,6 +69,66 @@ static cell_t CSWeaponData_Size(IPluginContext* pContext, const cell_t* params)
     return sizeof(CCSWeaponData);
 }
 
+static cell_t CSWeaponData_GetAllowHandFlipping(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->AllowHandFlipping();
+}
+
+static cell_t CSWeaponData_SetAllowHandFlipping(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetAllowHandFlipping(params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetModelRightHanded(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->ModelRightHanded();
+}
+
+static cell_t CSWeaponData_SetModelRightHanded(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetModelRightHanded(params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetIsMeleeWeapon(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->IsMeleeWeapon();
+}
+
+static cell_t CSWeaponData_SetIsMeleeWeapon(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetIsMeleeWeapon(params[2]);
+
+    return 1;
+}
+
 static cell_t CSWeaponData_GetHasSilencer(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -365,6 +425,66 @@ static cell_t CSWeaponData_SetSecondaryReserveAmmoMax(IPluginContext* pContext, 
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetSecondaryReserveAmmoMax(params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetItemFlags(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->ItemFlags();
+}
+
+static cell_t CSWeaponData_SetItemFlags(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetItemFlags(params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetWeight(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->Weight();
+}
+
+static cell_t CSWeaponData_SetWeight(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetWeight(params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetRumbleEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->RumbleEffect();
+}
+
+static cell_t CSWeaponData_SetRumbleEffect(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetRumbleEffect(params[2]);
 
     return 1;
 }
@@ -685,6 +805,26 @@ static cell_t CSWeaponData_SetWeaponType(IPluginContext* pContext, const cell_t*
     SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
 
     pCCSWeaponData->SetWeaponType((CSWeaponType)params[2]);
+
+    return 1;
+}
+
+static cell_t CSWeaponData_GetBotDifficultyType(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->BotDifficultyType();
+}
+
+static cell_t CSWeaponData_SetBotDifficultyType(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetBotDifficultyType((CSBotDifficultyType)params[2]);
 
     return 1;
 }
@@ -2265,6 +2405,13 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.GetByIndex",                            CSWeaponData_GetByIndex },
     { "CSWeaponData.Count",                                 CSWeaponData_Count },
     { "CSWeaponData.Size",                                  CSWeaponData_Size },
+
+    { "CSWeaponData.AllowHandFlipping.get",                 CSWeaponData_GetAllowHandFlipping },
+    { "CSWeaponData.AllowHandFlipping.set",                 CSWeaponData_SetAllowHandFlipping },
+    { "CSWeaponData.ModelRightHanded.get",                  CSWeaponData_GetModelRightHanded },
+    { "CSWeaponData.ModelRightHanded.set",                  CSWeaponData_SetModelRightHanded },
+    { "CSWeaponData.IsMeleeWeapon.get",                     CSWeaponData_GetIsMeleeWeapon },
+    { "CSWeaponData.IsMeleeWeapon.set",                     CSWeaponData_SetIsMeleeWeapon },
     { "CSWeaponData.HasSilencer.get",                       CSWeaponData_GetHasSilencer },
     { "CSWeaponData.HasSilencer.set",                       CSWeaponData_SetHasSilencer },
     { "CSWeaponData.FullAuto.get",                          CSWeaponData_GetFullAuto },
@@ -2296,6 +2443,12 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.PrimaryReserveAmmoMax.set",             CSWeaponData_SetPrimaryReserveAmmoMax },
     { "CSWeaponData.SecondaryReserveAmmoMax.get",           CSWeaponData_GetSecondaryReserveAmmoMax },
     { "CSWeaponData.SecondaryReserveAmmoMax.set",           CSWeaponData_SetSecondaryReserveAmmoMax },
+    { "CSWeaponData.ItemFlags.get",                         CSWeaponData_GetItemFlags },
+    { "CSWeaponData.ItemFlags.set",                         CSWeaponData_SetItemFlags },
+    { "CSWeaponData.Weight.get",                            CSWeaponData_GetWeight },
+    { "CSWeaponData.Weight.set",                            CSWeaponData_SetWeight },
+    { "CSWeaponData.RumbleEffect.get",                      CSWeaponData_GetRumbleEffect },
+    { "CSWeaponData.RumbleEffect.set",                      CSWeaponData_SetRumbleEffect },
     { "CSWeaponData.WeaponPrice.get",                       CSWeaponData_GetWeaponPrice },
     { "CSWeaponData.WeaponPrice.set",                       CSWeaponData_SetWeaponPrice },
     { "CSWeaponData.KillAward.get",                         CSWeaponData_GetKillAward },
@@ -2328,6 +2481,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.TracerFrequencyAlt.set",                CSWeaponData_SetTracerFrequencyAlt },
     { "CSWeaponData.WeaponType.get",                        CSWeaponData_GetWeaponType },
     { "CSWeaponData.WeaponType.set",                        CSWeaponData_SetWeaponType },
+    { "CSWeaponData.BotDifficultyType.get",                 CSWeaponData_GetBotDifficultyType },
+    { "CSWeaponData.BotDifficultyType.set",                 CSWeaponData_SetBotDifficultyType },
 
     { "CSWeaponData.CycleTime.get",                         CSWeaponData_GetCycleTime },
     { "CSWeaponData.CycleTime.set",                         CSWeaponData_SetCycleTime },

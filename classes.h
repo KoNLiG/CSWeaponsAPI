@@ -39,6 +39,19 @@ enum CSWeaponType
     WEAPONTYPE_UNKNOWN
 };
 
+/**
+ * 'CCSWeaponData::BotDifficultyType' values.
+ */
+enum CSBotDifficultyType
+{
+	BOT_EASY = 0,
+	BOT_NORMAL = 1,
+	BOT_HARD = 2,
+	BOT_EXPERT = 3,
+
+	NUM_DIFFICULTY_LEVELS
+};
+
 class CEconItemView;
 class CEconItemDefinition;
 
@@ -46,6 +59,9 @@ class CCSWeaponData
 {
 public:
     // Booleans
+    bool AllowHandFlipping() const                           { return m_bAllowHandFlipping; }
+    bool ModelRightHanded() const                            { return m_bModelRightHanded; }
+    bool IsMeleeWeapon() const                               { return m_bIsMeleeWeapon; }
     bool HasSilencer() const                                 { return m_bHasSilencer; }
     bool FullAuto() const                                  	 { return m_bFullAuto; }
     bool ShouldUnzoomAfterShot() const                       { return m_bUnzoomAfterShot; }
@@ -55,6 +71,9 @@ public:
     bool CannotShootUnderwater() const                       { return m_bCannotShootUnderwater; }
 
     // Setters
+    void SetAllowHandFlipping(bool value)              	     { m_bAllowHandFlipping = value; }
+    void SetModelRightHanded(bool value)              	     { m_bModelRightHanded = value; }
+    void SetIsMeleeWeapon(bool value)              	         { m_bIsMeleeWeapon = value; }
     void SetHasSilencer(bool value)              	    	 { m_bHasSilencer = value; }
     void SetFullAuto(bool value)              	    	 	 { m_bFullAuto = value; }
     void SetShouldUnzoomAfterShot(bool value)              	 { m_bUnzoomAfterShot = value; }
@@ -65,13 +84,16 @@ public:
 
     // Integers
     uint16 ItemDef() const                                   { return m_nDefIndex; }
-    CEconItemDefinition* Definition() const                   { return m_pDefinition; }
+    CEconItemDefinition* Definition() const                  { return m_pDefinition; }
     int MaxClip1() const 									 { return m_iMaxClip1; }
     int MaxClip2() const 									 { return m_iMaxClip2; }
     int DefaultClip1() const 								 { return m_iDefaultClip1; }
     int DefaultClip2() const 								 { return m_iDefaultClip2; }
     int PrimaryReserveAmmoMax() const 						 { return m_iPrimaryReserveAmmoMax; }
     int SecondaryReserveAmmoMax() const 					 { return m_iSecondaryReserveAmmoMax; }
+    int ItemFlags() const                                    { return m_iItemFlags; }
+    int Weight() const                                       { return m_iWeight; }
+    int RumbleEffect() const                                 { return m_iRumbleEffect; }
     int WeaponPrice() const 								 { return m_iWeaponPrice; }
     int KillAward() const 									 { return m_iKillAward; }
     int Damage() const 										 { return m_iDamage; }
@@ -89,16 +111,20 @@ public:
     int TracerFrequencyAlt() const 							 { return m_iTracerFrequencyAlt; }
 
     CSWeaponType WeaponType() const 						 { return m_iWeaponType; }
+    CSBotDifficultyType BotDifficultyType() const            { return m_BotDifficultyType; }
 
     // Setters
     void SetItemDef(int value)                               { m_nDefIndex = value; }
-    void SetDefinition(CEconItemDefinition* value)            { m_pDefinition = value; }
+    void SetDefinition(CEconItemDefinition* value)           { m_pDefinition = value; }
     void SetMaxClip1(int value) 							 { m_iMaxClip1 = value; }
     void SetMaxClip2(int value) 							 { m_iMaxClip2 = value; }
     void SetDefaultClip1(int value) 						 { m_iDefaultClip1 = value; }
     void SetDefaultClip2(int value) 						 { m_iDefaultClip2 = value; }
     void SetPrimaryReserveAmmoMax(int value) 				 { m_iPrimaryReserveAmmoMax = value; }
     void SetSecondaryReserveAmmoMax(int value) 				 { m_iSecondaryReserveAmmoMax = value; }
+    void SetItemFlags(int value)                             { m_iItemFlags = value; }
+    void SetWeight(int value)                                { m_iWeight = value; }
+    void SetRumbleEffect(int value)                          { m_iRumbleEffect = value; }
     void SetWeaponPrice(int value) 							 { m_iWeaponPrice = value; }
     void SetKillAward(int value) 							 { m_iKillAward = value; }
     void SetDamage(int value) 							 	 { m_iDamage = value; }
@@ -115,7 +141,8 @@ public:
     void SetTracerFrequency(int value) 						 { m_iTracerFrequency = value; }
     void SetTracerFrequencyAlt(int value) 					 { m_iTracerFrequencyAlt = value; }
 
-    void SetWeaponType(CSWeaponType value)					  { m_iWeaponType = value; }
+    void SetWeaponType(CSWeaponType value)					 { m_iWeaponType = value; }
+    void SetBotDifficultyType(CSBotDifficultyType value)	 { m_BotDifficultyType = value; }
 
     // Floats
     float CycleTime() const                                 { return m_flCycleTime; }
@@ -293,9 +320,17 @@ private:
     char padding_4[4];                      // 132 [4]
     char* m_szHudName;                      // 136 [4]
     char* m_szDefaultName;                  // 140 [4]
-    char padding_5[56];                     // 144 [56]
+    bool m_bAllowHandFlipping;              // 144 [1]
+    bool m_bModelRightHanded;               // 145 [1]
+    bool m_bIsMeleeWeapon;                  // 146 [1]
+    char padding_5[5];                      // 147 [5]
+    int m_iItemFlags;                       // 152 [4]
+    int m_iWeight;                          // 156 [4]
+    char padding_6[32];                     // 160 [32]
+    int m_iRumbleEffect;                    // 192 [4]
+    char padding_7[4];                      // 196 [4]
     CSWeaponType m_iWeaponType;             // 200 [4]
-    char padding_6[4];                      // 204 [4]
+    CSBotDifficultyType m_BotDifficultyType;// 204 [4]
     int m_iWeaponPrice;                     // 208 [4]
     int m_iKillAward;                       // 212 [4]
     char* m_szAnimationPrefix;              // 216 [4]
@@ -304,7 +339,7 @@ private:
     float m_flTimeToIdle;                   // 228 [4]
     float m_flIdleInterval;                 // 232 [4]
     bool m_bFullAuto;                       // 236 [1]
-    char padding_7[3];                      // 237 [3]
+    char padding_9[3];                      // 237 [3]
     int m_iDamage;                          // 240 [4]
     float m_flHeadshotMultiplier;			// 244 [4]
     float m_flArmorRatio;                   // 248 [4]
@@ -315,9 +350,9 @@ private:
     float m_flRange;                        // 268 [4]
     float m_flRangeModifier;                // 272 [4]
     float m_flThrowVelocity;                // 276 [4]
-    char padding_8[12];                     // 280 [12]
+    char padding_10[12];                    // 280 [12]
     bool m_bHasSilencer;                    // 292 [1]
-    char padding_9[3];                      // 293 [3]
+    char padding_11[3];                     // 293 [3]
     char* m_pSilencerModel;                 // 296 [4]
     int m_iCrosshairMinDistance;            // 300 [4]
     int m_iCrosshairDeltaDistance;          // 304 [4]
@@ -361,7 +396,7 @@ private:
     int m_iRecoveryTransitionEndBullet;	    // 456 [4]
     bool m_bUnzoomAfterShot;				// 460 [1]
     bool m_bHideViewModelZoomed;			// 461 [1]
-    char padding_10[2];					    // 462 [2]
+    char padding_12[2];					    // 462 [2]
     int m_iZoomLevels;					    // 464 [4]
     int m_iZoomFov1;						// 468 [4]
     int m_iZoomFov2;						// 472 [4]
@@ -369,16 +404,16 @@ private:
     float m_flZoomTime1;					// 480 [4]
     float m_flZoomTime2;					// 484 [4]
     char* m_szAddonlocation;                // 488 [4]
-    char padding_11[4];					    // 492 [4]
+    char padding_13[4];					    // 492 [4]
     float m_flAddonScale;					// 496 [4]
     char* m_szEjectBrassEffect;             // 500 [4]
     char* m_szTracerEffect;                 // 504 [4]
     int m_iTracerFrequency;                 // 508 [4]
     int m_iTracerFrequencyAlt;              // 512 [4]
     char* m_szMuzzleFlashEffect1stPerson;   // 516 [4]
-    char padding_12[4];                     // 520 [4]
+    char padding_14[4];                     // 520 [4]
     char* m_szMuzzleFlashEffect3stPerson;   // 524 [4]
-    char padding_13[4];                     // 528 [4]
+    char padding_15[4];                     // 528 [4]
     char* m_szHeatEffect;            		// 532 [4]
     float m_flHeatPerShot;                  // 536 [4]
     char* m_szZoomInSound;                  // 540 [4]
@@ -386,7 +421,7 @@ private:
     float m_flInaccuracyPitchShift;         // 548 [4]
     float m_flInaccuracySoundThreshold;     // 552 [4]
     float m_flBotAudibleRange;              // 556 [4]
-    char padding_14[12];                    // 560 [12]
+    char padding_16[12];                    // 560 [12]
     bool m_bHasBurstMode;                   // 572 [1]
     bool m_bIsRevolver;                     // 573 [1]
     bool m_bCannotShootUnderwater;		    // 574 [1]
