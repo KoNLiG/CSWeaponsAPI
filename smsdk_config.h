@@ -27,10 +27,10 @@
 /* Basic information exposed publicly */
 #define SMEXT_CONF_NAME			"CSWeaponsAPI"
 #define SMEXT_CONF_DESCRIPTION	"API for CS:GO internal weapons."
-#define SMEXT_CONF_VERSION		"1.0.0"
+#define SMEXT_CONF_VERSION		"1.10.0"
 #define SMEXT_CONF_AUTHOR		"KoNLiG"
 #define SMEXT_CONF_URL			"https://github.com/KoNLiG/CSWeaponsAPI"
-#define SMEXT_CONF_LOGTAG		"CSWeapons"
+#define SMEXT_CONF_LOGTAG		"CSWeaponsAPI"
 #define SMEXT_CONF_LICENSE		"GPL"
 #define SMEXT_CONF_DATESTRING	__DATE__
 
