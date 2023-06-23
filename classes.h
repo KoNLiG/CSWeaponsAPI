@@ -44,12 +44,12 @@ enum CSWeaponType
  */
 enum CSBotDifficultyType
 {
-	BOT_EASY = 0,
-	BOT_NORMAL = 1,
-	BOT_HARD = 2,
-	BOT_EXPERT = 3,
+    BOT_EASY = 0,
+    BOT_NORMAL = 1,
+    BOT_HARD = 2,
+    BOT_EXPERT = 3,
 
-	NUM_DIFFICULTY_LEVELS
+    NUM_DIFFICULTY_LEVELS
 };
 
 class CEconItemView;
@@ -63,7 +63,7 @@ public:
     bool ModelRightHanded() const                            { return m_bModelRightHanded; }
     bool IsMeleeWeapon() const                               { return m_bIsMeleeWeapon; }
     bool HasSilencer() const                                 { return m_bHasSilencer; }
-    bool FullAuto() const                                  	 { return m_bFullAuto; }
+    bool FullAuto() const                                    { return m_bFullAuto; }
     bool ShouldUnzoomAfterShot() const                       { return m_bUnzoomAfterShot; }
     bool ShouldHideViewModelZoomed() const                   { return m_bHideViewModelZoomed; }
     bool HasBurstMode() const                                { return m_bHasBurstMode; }
@@ -71,82 +71,82 @@ public:
     bool CannotShootUnderwater() const                       { return m_bCannotShootUnderwater; }
 
     // Setters
-    void SetAllowHandFlipping(bool value)              	     { m_bAllowHandFlipping = value; }
-    void SetModelRightHanded(bool value)              	     { m_bModelRightHanded = value; }
-    void SetIsMeleeWeapon(bool value)              	         { m_bIsMeleeWeapon = value; }
-    void SetHasSilencer(bool value)              	    	 { m_bHasSilencer = value; }
-    void SetFullAuto(bool value)              	    	 	 { m_bFullAuto = value; }
-    void SetShouldUnzoomAfterShot(bool value)              	 { m_bUnzoomAfterShot = value; }
+    void SetAllowHandFlipping(bool value)                    { m_bAllowHandFlipping = value; }
+    void SetModelRightHanded(bool value)                     { m_bModelRightHanded = value; }
+    void SetIsMeleeWeapon(bool value)                        { m_bIsMeleeWeapon = value; }
+    void SetHasSilencer(bool value)                          { m_bHasSilencer = value; }
+    void SetFullAuto(bool value)                             { m_bFullAuto = value; }
+    void SetShouldUnzoomAfterShot(bool value)                { m_bUnzoomAfterShot = value; }
     void SetShouldHideViewModelZoomed(bool value)            { m_bHideViewModelZoomed = value; }
-    void SetHasBurstMode(bool value)              	    	 { m_bHasBurstMode = value; }
-    void SetIsRevolver(bool value)              	    	 { m_bIsRevolver = value; }
-    void SetCannotShootUnderwater(bool value)              	 { m_bCannotShootUnderwater = value; }
+    void SetHasBurstMode(bool value)                         { m_bHasBurstMode = value; }
+    void SetIsRevolver(bool value)                           { m_bIsRevolver = value; }
+    void SetCannotShootUnderwater(bool value)                { m_bCannotShootUnderwater = value; }
 
     // Integers
     uint16 ItemDef() const                                   { return m_nDefIndex; }
     CEconItemDefinition* Definition() const                  { return m_pDefinition; }
-    int MaxClip1() const 									 { return m_iMaxClip1; }
-    int MaxClip2() const 									 { return m_iMaxClip2; }
-    int DefaultClip1() const 								 { return m_iDefaultClip1; }
-    int DefaultClip2() const 								 { return m_iDefaultClip2; }
-    int PrimaryReserveAmmoMax() const 						 { return m_iPrimaryReserveAmmoMax; }
-    int SecondaryReserveAmmoMax() const 					 { return m_iSecondaryReserveAmmoMax; }
+    int MaxClip1() const                                     { return m_iMaxClip1; }
+    int MaxClip2() const                                     { return m_iMaxClip2; }
+    int DefaultClip1() const                                 { return m_iDefaultClip1; }
+    int DefaultClip2() const                                 { return m_iDefaultClip2; }
+    int PrimaryReserveAmmoMax() const                        { return m_iPrimaryReserveAmmoMax; }
+    int SecondaryReserveAmmoMax() const                      { return m_iSecondaryReserveAmmoMax; }
     int ItemFlags() const                                    { return m_iItemFlags; }
     int Weight() const                                       { return m_iWeight; }
     int LoadoutSlot() const                                  { return m_iLoadoutSlot; }
     int RumbleEffect() const                                 { return m_iRumbleEffect; }
-    int WeaponPrice() const 								 { return m_iWeaponPrice; }
-    int KillAward() const 									 { return m_iKillAward; }
-    int Damage() const 										 { return m_iDamage; }
-    int Bullets() const 									 { return m_iBullets; }
-    int CrosshairMinDistance() const 						 { return m_iCrosshairMinDistance; }
-    int CrosshairDeltaDistance() const 						 { return m_iCrosshairDeltaDistance; }
-    int RecoilSeed() const 									 { return m_iRecoilSeed; }
-    int SpreadSeed() const 					 				 { return m_iSpreadSeed; }
-    int RecoveryTransitionStartBullet() const 				 { return m_iRecoveryTransitionStartBullet; }
-    int RecoveryTransitionEndBullet() const 				 { return m_iRecoveryTransitionEndBullet; }
-    int ZoomLevels() const 									 { return m_iZoomLevels; }
-    int ZoomFov1() const 									 { return m_iZoomFov1; }
-    int ZoomFov2() const 									 { return m_iZoomFov2; }
-    int TracerFrequency() const 							 { return m_iTracerFrequency; }
-    int TracerFrequencyAlt() const 							 { return m_iTracerFrequencyAlt; }
+    int WeaponPrice() const                                  { return m_iWeaponPrice; }
+    int KillAward() const                                    { return m_iKillAward; }
+    int Damage() const                                       { return m_iDamage; }
+    int Bullets() const                                      { return m_iBullets; }
+    int CrosshairMinDistance() const                         { return m_iCrosshairMinDistance; }
+    int CrosshairDeltaDistance() const                       { return m_iCrosshairDeltaDistance; }
+    int RecoilSeed() const                                   { return m_iRecoilSeed; }
+    int SpreadSeed() const                                   { return m_iSpreadSeed; }
+    int RecoveryTransitionStartBullet() const                { return m_iRecoveryTransitionStartBullet; }
+    int RecoveryTransitionEndBullet() const                  { return m_iRecoveryTransitionEndBullet; }
+    int ZoomLevels() const                                   { return m_iZoomLevels; }
+    int ZoomFov1() const                                     { return m_iZoomFov1; }
+    int ZoomFov2() const                                     { return m_iZoomFov2; }
+    int TracerFrequency() const                              { return m_iTracerFrequency; }
+    int TracerFrequencyAlt() const                           { return m_iTracerFrequencyAlt; }
     int UsedByTeam() const                                   { return m_nUsedByTeam; }
 
-    CSWeaponType WeaponType() const 						 { return m_iWeaponType; }
+    CSWeaponType WeaponType() const                          { return m_iWeaponType; }
     CSBotDifficultyType BotDifficultyType() const            { return m_BotDifficultyType; }
 
     // Setters
     void SetItemDef(int value)                               { m_nDefIndex = value; }
     void SetDefinition(CEconItemDefinition* value)           { m_pDefinition = value; }
-    void SetMaxClip1(int value) 							 { m_iMaxClip1 = value; }
-    void SetMaxClip2(int value) 							 { m_iMaxClip2 = value; }
-    void SetDefaultClip1(int value) 						 { m_iDefaultClip1 = value; }
-    void SetDefaultClip2(int value) 						 { m_iDefaultClip2 = value; }
-    void SetPrimaryReserveAmmoMax(int value) 				 { m_iPrimaryReserveAmmoMax = value; }
-    void SetSecondaryReserveAmmoMax(int value) 				 { m_iSecondaryReserveAmmoMax = value; }
+    void SetMaxClip1(int value)                              { m_iMaxClip1 = value; }
+    void SetMaxClip2(int value)                              { m_iMaxClip2 = value; }
+    void SetDefaultClip1(int value)                          { m_iDefaultClip1 = value; }
+    void SetDefaultClip2(int value)                          { m_iDefaultClip2 = value; }
+    void SetPrimaryReserveAmmoMax(int value)                 { m_iPrimaryReserveAmmoMax = value; }
+    void SetSecondaryReserveAmmoMax(int value)               { m_iSecondaryReserveAmmoMax = value; }
     void SetItemFlags(int value)                             { m_iItemFlags = value; }
     void SetWeight(int value)                                { m_iWeight = value; }
     void SetLoadoutSlot(int value)                           { m_iLoadoutSlot = value; }
     void SetRumbleEffect(int value)                          { m_iRumbleEffect = value; }
-    void SetWeaponPrice(int value) 							 { m_iWeaponPrice = value; }
-    void SetKillAward(int value) 							 { m_iKillAward = value; }
-    void SetDamage(int value) 							 	 { m_iDamage = value; }
-    void SetBullets(int value) 							 	 { m_iBullets = value; }
-    void SetCrosshairMinDistance(int value) 				 { m_iCrosshairMinDistance = value; }
-    void SetCrosshairDeltaDistance(int value) 				 { m_iCrosshairDeltaDistance = value; }
-    void SetRecoilSeed(int value) 							 { m_iRecoilSeed = value; }
-    void SetSpreadSeed(int value) 							 { m_iSpreadSeed = value; }
-    void SetRecoveryTransitionStartBullet(int value) 		 { m_iRecoveryTransitionStartBullet = value; }
-    void SetRecoveryTransitionEndBullet(int value) 			 { m_iRecoveryTransitionEndBullet = value; }
-    void SetZoomLevels(int value) 							 { m_iZoomLevels = value; }
-    void SetZoomFov1(int value) 							 { m_iZoomFov1 = value; }
-    void SetZoomFov2(int value) 							 { m_iZoomFov2 = value; }
-    void SetTracerFrequency(int value) 						 { m_iTracerFrequency = value; }
-    void SetTracerFrequencyAlt(int value) 					 { m_iTracerFrequencyAlt = value; }
+    void SetWeaponPrice(int value)                           { m_iWeaponPrice = value; }
+    void SetKillAward(int value)                             { m_iKillAward = value; }
+    void SetDamage(int value)                                { m_iDamage = value; }
+    void SetBullets(int value)                               { m_iBullets = value; }
+    void SetCrosshairMinDistance(int value)                  { m_iCrosshairMinDistance = value; }
+    void SetCrosshairDeltaDistance(int value)                { m_iCrosshairDeltaDistance = value; }
+    void SetRecoilSeed(int value)                            { m_iRecoilSeed = value; }
+    void SetSpreadSeed(int value)                            { m_iSpreadSeed = value; }
+    void SetRecoveryTransitionStartBullet(int value)         { m_iRecoveryTransitionStartBullet = value; }
+    void SetRecoveryTransitionEndBullet(int value)           { m_iRecoveryTransitionEndBullet = value; }
+    void SetZoomLevels(int value)                            { m_iZoomLevels = value; }
+    void SetZoomFov1(int value)                              { m_iZoomFov1 = value; }
+    void SetZoomFov2(int value)                              { m_iZoomFov2 = value; }
+    void SetTracerFrequency(int value)                       { m_iTracerFrequency = value; }
+    void SetTracerFrequencyAlt(int value)                    { m_iTracerFrequencyAlt = value; }
     void SetUsedByTeam(int value)                            { m_nUsedByTeam = value; }
 
-    void SetWeaponType(CSWeaponType value)					 { m_iWeaponType = value; }
-    void SetBotDifficultyType(CSBotDifficultyType value)	 { m_BotDifficultyType = value; }
+    void SetWeaponType(CSWeaponType value)                   { m_iWeaponType = value; }
+    void SetBotDifficultyType(CSBotDifficultyType value)     { m_BotDifficultyType = value; }
 
     // Floats
     float CycleTime() const                                 { return m_flCycleTime; }
@@ -158,13 +158,13 @@ public:
     float Penetration() const                               { return m_flPenetration; }
     float FlinchVelocityModifierLarge() const               { return m_flFlinchVelocityModifierLarge; }
     float FlinchVelocityModifierSmall() const               { return m_flFlinchVelocityModifierSmall; }
-    float Range() const                                 	{ return m_flRange; }
+    float Range() const                                     { return m_flRange; }
     float RangeModifier() const                             { return m_flRangeModifier; }
     float ThrowVelocity() const                             { return m_flThrowVelocity; }
     float MaxPlayerSpeed() const                            { return m_flMaxPlayerSpeed; }
     float MaxPlayerSpeedAlt() const                         { return m_flMaxPlayerSpeedAlt; }
     float AttackMovespeedFactor() const                     { return m_flAttackMovespeedFactor; }
-    float Spread() const                                 	{ return m_flSpread; }
+    float Spread() const                                    { return m_flSpread; }
     float SpreadAlt() const                                 { return m_flSpreadAlt; }
     float InaccuracyCrouch() const                          { return m_flInaccuracyCrouch; }
     float InaccuracyCrouchAlt() const                       { return m_flInaccuracyCrouchAlt; }
@@ -261,48 +261,48 @@ public:
     void SetBotAudibleRange(float value)                    { m_flBotAudibleRange = value; }
 
     // Strings
-    const char* GetClassName() const						{ return m_szClassName; }
-    const char* GetViewModel() const               			{ return m_szViewModel; }
-    const char* GetWorldModel() const               		{ return m_szWorldModel; }
-    const char* GetDroppedModel() const               		{ return m_szDroppedModel; }
-    const char* GetShotSound() const               			{ return m_szShotSound; }
-    const char* GetEmptySound() const               		{ return m_szEmptySound; }
-    const char* GetBulletType() const               		{ return m_szBulletType; }
-    const char* GetHudName() const               			{ return m_szHudName; }
-    const char* GetDefaultName() const               		{ return m_szDefaultName; }
-    const char* GetAnimationPrefix() const               	{ return m_szAnimationPrefix; }
-    const char* GetSilencerModel() const               		{ return m_pSilencerModel; }
-    const char* GetAddonlocation() const               		{ return m_szAddonlocation; }
-    const char* GetEjectBrassEffect() const               	{ return m_szEjectBrassEffect; }
-    const char* GetTracerEffect() const               		{ return m_szTracerEffect; }
+    const char* GetClassName() const                        { return m_szClassName; }
+    const char* GetViewModel() const                        { return m_szViewModel; }
+    const char* GetWorldModel() const                       { return m_szWorldModel; }
+    const char* GetDroppedModel() const                     { return m_szDroppedModel; }
+    const char* GetShotSound() const                        { return m_szShotSound; }
+    const char* GetEmptySound() const                       { return m_szEmptySound; }
+    const char* GetBulletType() const                       { return m_szBulletType; }
+    const char* GetHudName() const                          { return m_szHudName; }
+    const char* GetDefaultName() const                      { return m_szDefaultName; }
+    const char* GetAnimationPrefix() const                  { return m_szAnimationPrefix; }
+    const char* GetSilencerModel() const                    { return m_pSilencerModel; }
+    const char* GetAddonlocation() const                    { return m_szAddonlocation; }
+    const char* GetEjectBrassEffect() const                 { return m_szEjectBrassEffect; }
+    const char* GetTracerEffect() const                     { return m_szTracerEffect; }
     const char* GetMuzzleFlashEffect1stPerson() const       { return m_szMuzzleFlashEffect1stPerson; }
-    const char* GetHeatEffect() const       				{ return m_szHeatEffect; }
-    const char* GetZoomInSound() const       				{ return m_szZoomInSound; }
-    const char* GetZoomOutSound() const       				{ return m_szZoomOutSound; }
+    const char* GetHeatEffect() const                       { return m_szHeatEffect; }
+    const char* GetZoomInSound() const                      { return m_szZoomInSound; }
+    const char* GetZoomOutSound() const                     { return m_szZoomOutSound; }
 
     // Setters
-    void SetClassName(char* source)                			{ m_szClassName = source; }
-    void SetViewModel(char* source)                			{ m_szViewModel = source; }
-    void SetWorldModel(char* source)               			{ m_szWorldModel = source; }
-    void SetDroppedModel(char* source)             			{ m_szDroppedModel = source; }
-    void SetShotSound(char* source)				   			{ m_szShotSound = source; }
-    void SetEmptySound(char* source)				   		{ m_szEmptySound = source; }
-    void SetBulletType(char* source)				   		{ m_szBulletType = source; }
-    void SetHudName(char* source)             				{ m_szHudName = source; }
-    void SetDefaultName(char* source)				   		{ m_szDefaultName = source; }
-    void SetAnimationPrefix(char* source)             		{ m_szAnimationPrefix = source; }
-    void SetSilencerModel(char* source)             		{ m_pSilencerModel = source; }
-    void SetAddonlocation(char* source)             		{ m_szAddonlocation = source; }
-    void SetEjectBrassEffect(char* source)             		{ m_szEjectBrassEffect = source; }
-    void SetTracerEffect(char* source)				   		{ m_szTracerEffect = source; }
-    void SetMuzzleFlashEffect1stPerson(char* source)		{ m_szMuzzleFlashEffect1stPerson = source; }
-    void SetHeatEffect(char* source)             			{ m_szHeatEffect = source; }
-    void SetZoomInSound(char* source)             			{ m_szZoomInSound = source; }
-    void SetZoomOutSound(char* source)             			{ m_szZoomOutSound = source; }
+    void SetClassName(char* source)                            { m_szClassName = source; }
+    void SetViewModel(char* source)                            { m_szViewModel = source; }
+    void SetWorldModel(char* source)                           { m_szWorldModel = source; }
+    void SetDroppedModel(char* source)                         { m_szDroppedModel = source; }
+    void SetShotSound(char* source)                            { m_szShotSound = source; }
+    void SetEmptySound(char* source)                           { m_szEmptySound = source; }
+    void SetBulletType(char* source)                           { m_szBulletType = source; }
+    void SetHudName(char* source)                              { m_szHudName = source; }
+    void SetDefaultName(char* source)                          { m_szDefaultName = source; }
+    void SetAnimationPrefix(char* source)                      { m_szAnimationPrefix = source; }
+    void SetSilencerModel(char* source)                        { m_pSilencerModel = source; }
+    void SetAddonlocation(char* source)                        { m_szAddonlocation = source; }
+    void SetEjectBrassEffect(char* source)                     { m_szEjectBrassEffect = source; }
+    void SetTracerEffect(char* source)                         { m_szTracerEffect = source; }
+    void SetMuzzleFlashEffect1stPerson(char* source)           { m_szMuzzleFlashEffect1stPerson = source; }
+    void SetHeatEffect(char* source)                           { m_szHeatEffect = source; }
+    void SetZoomInSound(char* source)                          { m_szZoomInSound = source; }
+    void SetZoomOutSound(char* source)                         { m_szZoomOutSound = source; }
 
 private:
     void* m_pVTable;                        // 0 [4]
-    char* m_szClassName;                  	// 4 [4]
+    char* m_szClassName;                    // 4 [4]
     uint16 m_nDefIndex;                     // 8 [2]
     char padding[6];                        // 10 [6]
     CEconItemDefinition* m_pDefinition;     // 16 [4]
@@ -310,8 +310,8 @@ private:
     int m_iMaxClip2;                        // 24 [4]
     int m_iDefaultClip1;                    // 28 [4]
     int m_iDefaultClip2;                    // 32 [4]
-    int m_iPrimaryReserveAmmoMax;			// 36 [4]
-    int m_iSecondaryReserveAmmoMax;		    // 40 [4]
+    int m_iPrimaryReserveAmmoMax;           // 36 [4]
+    int m_iSecondaryReserveAmmoMax;         // 40 [4]
     char* m_szWorldModel;                   // 44 [4]
     char* m_szViewModel;                    // 48 [4]
     char* m_szDroppedModel;                 // 52 [4]
@@ -347,7 +347,7 @@ private:
     bool m_bFullAuto;                       // 236 [1]
     char padding_9[3];                      // 237 [3]
     int m_iDamage;                          // 240 [4]
-    float m_flHeadshotMultiplier;			// 244 [4]
+    float m_flHeadshotMultiplier;           // 244 [4]
     float m_flArmorRatio;                   // 248 [4]
     int m_iBullets;                         // 252 [4]
     float m_flPenetration;                  // 256 [4]
@@ -372,7 +372,7 @@ private:
     float m_flInaccuracyStand;              // 336 [4]
     float m_flInaccuracyStandAlt;           // 340 [4]
     float m_flInaccuracyJumpInitial;        // 344 [4]
-    float m_flInaccuracyJumpApex;			// 348 [4]
+    float m_flInaccuracyJumpApex;           // 348 [4]
     float m_flInaccuracyJump;               // 352 [4]
     float m_flInaccuracyJumpAlt;            // 356 [4]
     float m_flInaccuracyLand;               // 360 [4]
@@ -393,25 +393,25 @@ private:
     float m_flRecoilMagnitudeAlt;           // 420 [4]
     float m_flRecoilMagnitudeVariance;      // 424 [4]
     float m_flRecoilMagnitudeVarianceAlt;   // 428 [4]
-    int m_iSpreadSeed;					    // 432 [4]
+    int m_iSpreadSeed;                      // 432 [4]
     float m_flRecoveryTimeCrouch;           // 436 [4]
     float m_flRecoveryTimeStand;            // 440 [4]
     float m_flRecoveryTimeCrouchFinal;      // 444 [4]
     float m_flRecoveryTimeStandFinal;       // 448 [4]
     int m_iRecoveryTransitionStartBullet;   // 452 [4]
-    int m_iRecoveryTransitionEndBullet;	    // 456 [4]
-    bool m_bUnzoomAfterShot;				// 460 [1]
-    bool m_bHideViewModelZoomed;			// 461 [1]
-    char padding_12[2];					    // 462 [2]
-    int m_iZoomLevels;					    // 464 [4]
-    int m_iZoomFov1;						// 468 [4]
-    int m_iZoomFov2;						// 472 [4]
-    float m_flZoomTime0;					// 476 [4]
-    float m_flZoomTime1;					// 480 [4]
-    float m_flZoomTime2;					// 484 [4]
+    int m_iRecoveryTransitionEndBullet;     // 456 [4]
+    bool m_bUnzoomAfterShot;                // 460 [1]
+    bool m_bHideViewModelZoomed;            // 461 [1]
+    char padding_12[2];                     // 462 [2]
+    int m_iZoomLevels;                      // 464 [4]
+    int m_iZoomFov1;                        // 468 [4]
+    int m_iZoomFov2;                        // 472 [4]
+    float m_flZoomTime0;                    // 476 [4]
+    float m_flZoomTime1;                    // 480 [4]
+    float m_flZoomTime2;                    // 484 [4]
     char* m_szAddonlocation;                // 488 [4]
-    char padding_13[4];					    // 492 [4]
-    float m_flAddonScale;					// 496 [4]
+    char padding_13[4];                     // 492 [4]
+    float m_flAddonScale;                   // 496 [4]
     char* m_szEjectBrassEffect;             // 500 [4]
     char* m_szTracerEffect;                 // 504 [4]
     int m_iTracerFrequency;                 // 508 [4]
@@ -420,7 +420,7 @@ private:
     char padding_14[4];                     // 520 [4]
     char* m_szMuzzleFlashEffect3stPerson;   // 524 [4]
     char padding_15[4];                     // 528 [4]
-    char* m_szHeatEffect;            		// 532 [4]
+    char* m_szHeatEffect;                   // 532 [4]
     float m_flHeatPerShot;                  // 536 [4]
     char* m_szZoomInSound;                  // 540 [4]
     char* m_szZoomOutSound;                 // 544 [4]
@@ -432,7 +432,7 @@ private:
     char padding_17[4];                     // 568 [4]
     bool m_bHasBurstMode;                   // 572 [1]
     bool m_bIsRevolver;                     // 573 [1]
-    bool m_bCannotShootUnderwater;		    // 574 [1]
+    bool m_bCannotShootUnderwater;          // 574 [1]
     // padding 575 [1]?
 
     // Size = 576
