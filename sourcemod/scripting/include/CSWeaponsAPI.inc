@@ -309,6 +309,16 @@ methodmap CSWeaponData
         public native set(int value);
     }
 
+    // Retrieves the weapon loadout slot.
+    // Represented by all 'CS_SLOT_*' values provided by 'cstrike.inc'.
+    //
+    // @error              Invalid CSWeaponData. (null)
+    property int LoadoutSlot
+    {
+        public native get();
+        public native set(int value);
+    }
+
     // Retrieves the weapon rumble effect index.
     //
     // @error              Invalid CSWeaponData. (null)
@@ -1339,6 +1349,8 @@ public __ext_CSWeaponsAPI_SetNTVOptional()
     MarkNativeAsOptional("CSWeaponData.ItemFlags.set");
     MarkNativeAsOptional("CSWeaponData.Weight.get");
     MarkNativeAsOptional("CSWeaponData.Weight.set");
+    MarkNativeAsOptional("CSWeaponData.LoadoutSlot.get");
+    MarkNativeAsOptional("CSWeaponData.LoadoutSlot.set");
     MarkNativeAsOptional("CSWeaponData.RumbleEffect.get");
     MarkNativeAsOptional("CSWeaponData.RumbleEffect.set");
     MarkNativeAsOptional("CSWeaponData.WeaponPrice.get");

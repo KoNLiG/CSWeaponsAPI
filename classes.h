@@ -93,6 +93,7 @@ public:
     int SecondaryReserveAmmoMax() const 					 { return m_iSecondaryReserveAmmoMax; }
     int ItemFlags() const                                    { return m_iItemFlags; }
     int Weight() const                                       { return m_iWeight; }
+    int LoadoutSlot() const                                  { return m_iLoadoutSlot; }
     int RumbleEffect() const                                 { return m_iRumbleEffect; }
     int WeaponPrice() const 								 { return m_iWeaponPrice; }
     int KillAward() const 									 { return m_iKillAward; }
@@ -125,6 +126,7 @@ public:
     void SetSecondaryReserveAmmoMax(int value) 				 { m_iSecondaryReserveAmmoMax = value; }
     void SetItemFlags(int value)                             { m_iItemFlags = value; }
     void SetWeight(int value)                                { m_iWeight = value; }
+    void SetLoadoutSlot(int value)                           { m_iLoadoutSlot = value; }
     void SetRumbleEffect(int value)                          { m_iRumbleEffect = value; }
     void SetWeaponPrice(int value) 							 { m_iWeaponPrice = value; }
     void SetKillAward(int value) 							 { m_iKillAward = value; }
@@ -328,9 +330,11 @@ private:
     char padding_5[5];                      // 147 [5]
     int m_iItemFlags;                       // 152 [4]
     int m_iWeight;                          // 156 [4]
-    char padding_6[32];                     // 160 [32]
+    char padding_6[4];                      // 160 [4]
+    int m_iLoadoutSlot;                     // 164 [4]
+    char padding_7[24];                     // 168 [24]
     int m_iRumbleEffect;                    // 192 [4]
-    char padding_7[4];                      // 196 [4]
+    char padding_8[4];                      // 196 [4]
     CSWeaponType m_iWeaponType;             // 200 [4]
     CSBotDifficultyType m_BotDifficultyType;// 204 [4]
     int m_iWeaponPrice;                     // 208 [4]
@@ -341,7 +345,7 @@ private:
     float m_flTimeToIdle;                   // 228 [4]
     float m_flIdleInterval;                 // 232 [4]
     bool m_bFullAuto;                       // 236 [1]
-    char padding_8[3];                      // 237 [3]
+    char padding_9[3];                      // 237 [3]
     int m_iDamage;                          // 240 [4]
     float m_flHeadshotMultiplier;			// 244 [4]
     float m_flArmorRatio;                   // 248 [4]
@@ -352,9 +356,9 @@ private:
     float m_flRange;                        // 268 [4]
     float m_flRangeModifier;                // 272 [4]
     float m_flThrowVelocity;                // 276 [4]
-    char padding_9[12];                     // 280 [12]
+    char padding_10[12];                    // 280 [12]
     bool m_bHasSilencer;                    // 292 [1]
-    char padding_10[3];                     // 293 [3]
+    char padding_11[3];                     // 293 [3]
     char* m_pSilencerModel;                 // 296 [4]
     int m_iCrosshairMinDistance;            // 300 [4]
     int m_iCrosshairDeltaDistance;          // 304 [4]
@@ -398,7 +402,7 @@ private:
     int m_iRecoveryTransitionEndBullet;	    // 456 [4]
     bool m_bUnzoomAfterShot;				// 460 [1]
     bool m_bHideViewModelZoomed;			// 461 [1]
-    char padding_11[2];					    // 462 [2]
+    char padding_12[2];					    // 462 [2]
     int m_iZoomLevels;					    // 464 [4]
     int m_iZoomFov1;						// 468 [4]
     int m_iZoomFov2;						// 472 [4]
@@ -406,16 +410,16 @@ private:
     float m_flZoomTime1;					// 480 [4]
     float m_flZoomTime2;					// 484 [4]
     char* m_szAddonlocation;                // 488 [4]
-    char padding_12[4];					    // 492 [4]
+    char padding_13[4];					    // 492 [4]
     float m_flAddonScale;					// 496 [4]
     char* m_szEjectBrassEffect;             // 500 [4]
     char* m_szTracerEffect;                 // 504 [4]
     int m_iTracerFrequency;                 // 508 [4]
     int m_iTracerFrequencyAlt;              // 512 [4]
     char* m_szMuzzleFlashEffect1stPerson;   // 516 [4]
-    char padding_13[4];                     // 520 [4]
+    char padding_14[4];                     // 520 [4]
     char* m_szMuzzleFlashEffect3stPerson;   // 524 [4]
-    char padding_14[4];                     // 528 [4]
+    char padding_15[4];                     // 528 [4]
     char* m_szHeatEffect;            		// 532 [4]
     float m_flHeatPerShot;                  // 536 [4]
     char* m_szZoomInSound;                  // 540 [4]
@@ -423,9 +427,9 @@ private:
     float m_flInaccuracyPitchShift;         // 548 [4]
     float m_flInaccuracySoundThreshold;     // 552 [4]
     float m_flBotAudibleRange;              // 556 [4]
-    char padding_15[4];                     // 560 [4]
+    char padding_16[4];                     // 560 [4]
     int m_nUsedByTeam;                      // 564 [4]
-    char padding_16[4];                     // 568 [4]
+    char padding_17[4];                     // 568 [4]
     bool m_bHasBurstMode;                   // 572 [1]
     bool m_bIsRevolver;                     // 573 [1]
     bool m_bCannotShootUnderwater;		    // 574 [1]

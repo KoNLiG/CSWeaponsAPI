@@ -469,6 +469,26 @@ static cell_t CSWeaponData_SetWeight(IPluginContext* pContext, const cell_t* par
     return 1;
 }
 
+static cell_t CSWeaponData_GetLoadoutSlot(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    return pCCSWeaponData->LoadoutSlot();
+}
+
+static cell_t CSWeaponData_SetLoadoutSlot(IPluginContext* pContext, const cell_t* params)
+{
+    CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
+
+    SM_NATIVE_ERROR_IF_NULL(pCCSWeaponData);
+
+    pCCSWeaponData->SetLoadoutSlot(params[2]);
+
+    return 1;
+}
+
 static cell_t CSWeaponData_GetRumbleEffect(IPluginContext* pContext, const cell_t* params)
 {
     CCSWeaponData* pCCSWeaponData = reinterpret_cast<CCSWeaponData*>(params[1]);
@@ -2467,6 +2487,8 @@ extern const sp_nativeinfo_t g_MyNatives[] =
     { "CSWeaponData.ItemFlags.set",                         CSWeaponData_SetItemFlags },
     { "CSWeaponData.Weight.get",                            CSWeaponData_GetWeight },
     { "CSWeaponData.Weight.set",                            CSWeaponData_SetWeight },
+    { "CSWeaponData.LoadoutSlot.get",                       CSWeaponData_GetLoadoutSlot },
+    { "CSWeaponData.LoadoutSlot.set",                       CSWeaponData_SetLoadoutSlot },
     { "CSWeaponData.RumbleEffect.get",                      CSWeaponData_GetRumbleEffect },
     { "CSWeaponData.RumbleEffect.set",                      CSWeaponData_SetRumbleEffect },
     { "CSWeaponData.WeaponPrice.get",                       CSWeaponData_GetWeaponPrice },
